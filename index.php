@@ -35,16 +35,22 @@ include_once 'includes/head.php';
             <video autoplay muted loop playsinline class="hero-video-bg"><source src="video/video.mp4" type="video/mp4"></video>
             <div class="hero-overlay"></div>
             <div class="hero-text-overlay">
-                <span class="hero-anim-item hero-badge opacity-0">DIAGNÓSTICO DIGITAL DE ALTA TECNOLOGÍA</span>
-                <h1 class="hero-anim-item hero-title opacity-0">La Imagen más <br><span>Clara de tu Sonrisa</span></h1>
-                <p class="hero-anim-item hero-description opacity-0">Descubre la tranquilidad de un diagnóstico preciso con tecnología 3D de mínima radiación.</p>
+                <span class="hero-anim-item inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 rounded-full opacity-0">DIAGNÓSTICO DIGITAL DE ALTA TECNOLOGÍA</span>
+                <h1 class="hero-anim-item text-6xl md:text-8xl lg:text-9xl font-light leading-[1] mb-8 opacity-0">La Imagen más <br><span class="font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-white">Clara de tu Sonrisa</span></h1>
+                <p class="hero-anim-item text-lg md:text-xl text-cyan-50/70 max-w-2xl mx-auto mb-10 leading-relaxed opacity-0">Descubre la tranquilidad de un diagnóstico preciso con tecnología 3D de mínima radiación.</p>
                 <div class="hero-anim-item flex flex-col sm:flex-row gap-5 justify-center opacity-0">
-                    <a href="citas.php" class="btn-primary">AGENDAR CITA</a>
-                    <a href="estudios.php" class="btn-glass">VER ESTUDIOS</a>
+                    <a href="reserva.php" class="btn-primary">AGENDAR MI CITA</a>
+                    <a href="estudios.php" class="btn-glass">VER CATÁLOGO 3D</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- 4.1 Trust Bar (NUEVO: Autoridad Inmediata) -->
+    <?php include_once 'includes/trust-bar.php'; ?>
+
+    <!-- 4.2 Stats & Social Proof (Métricas de Impacto) -->
+    <?php include_once 'includes/stats-section.php'; ?>
 
     <!-- 5. Catálogo de Estudios -->
     <section id="estudios" class="max-w-7xl mx-auto pt-10 pb-32 px-4">
@@ -98,6 +104,7 @@ include_once 'includes/head.php';
     
     <!-- Sección de Autoridad y Confianza (Marketing) -->
     <?php include_once 'includes/trust-section.php'; ?>
+    <?php include_once 'includes/stats-section.php'; ?>
 
     <!-- 6. Call to Action Enriquecido (Marketing) -->
     <section class="cta-section py-32">
@@ -125,16 +132,16 @@ include_once 'includes/head.php';
                 <!-- Contenido de Acción -->
                 <div class="lg:pl-12">
                     <span class="hero-badge">INNOVACIÓN CON EMPATÍA</span>
-                    <h2 class="cta-title">¿Listo para transformar tu <br><span>diagnóstico?</span></h2>
+                    <h2 class="cta-title">¿Listo para una experiencia <br><span>clínica diferente?</span></h2>
                     <p class="cta-description">
-                        Únete a los miles de pacientes y doctores que ya confían en la precisión de Ortho Imagen Digital. Tu salud dental merece la mejor tecnología y el trato más humano.
+                        Únete a los especialistas y pacientes que eligen la precisión absoluta de Ortho Imagen Digital. Garantizamos resultados HD con el respaldo institucional que tú mereces.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6">
-                        <a href="citas.php" class="btn-primary">
-                            AGENDAR MI CITA <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        <a href="reserva.php" class="btn-primary">
+                            ASEGURAR MI CITA <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </a>
                         <a href="index.php#sucursales" class="btn-glass">
-                            VER SUCURSALES
+                            UBICAR SUCURSAL
                         </a>
                     </div>
                 </div>
@@ -152,6 +159,9 @@ include_once 'includes/head.php';
 
 <!-- 9. Scripts Finales -->
 <?php include_once 'includes/scripts.php'; ?>
+
+<!-- 10. SEO Structured Data -->
+<?php include_once 'includes/schema-markup.php'; ?>
 
 </body>
 </html>

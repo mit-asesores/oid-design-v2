@@ -7,10 +7,10 @@
             
             <!-- Texto de Marketing (Con clases para animación GSAP) -->
             <div class="trust-reveal-left opacity-0">
-                <span class="section-subtitle">EL ESTÁNDAR DE EXCELENCIA</span>
-                <h2 class="section-title mb-8 leading-tight">La Ingeniería de la <br/><span class="text-cyan-600 font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-cyan-400">Certeza Dental</span></h2>
+                <span class="section-subtitle uppercase tracking-widest text-xs font-bold text-cyan-600 mb-4 block">EL ESTÁNDAR DE EXCELENCIA</span>
+                <h2 class="section-title mb-8 leading-tight text-4xl md:text-5xl font-light text-slate-900">La Ingeniería de la <br/><span class="text-primary font-bold">Certeza Clínica</span></h2>
                 <p class="text-slate-600 font-light text-lg leading-relaxed mb-12">
-                    En Ortho Imagen Digital fusionamos la precisión micrométrica de la tecnología 3D con un enfoque profundamente humano. No solo capturamos imágenes; proporcionamos la tranquilidad de un diagnóstico infalible respaldado por los mejores especialistas de México.
+                    En <span class="font-semibold text-slate-900">Ortho Imagen Digital</span>, la precisión no es negociable. Fusionamos tecnología 3D de vanguardia con un criterio humano experto para entregar diagnósticos infalibles que eliminan cualquier margen de error en tu tratamiento.
                 </p>
                 
                 <div class="flex flex-col gap-6">
@@ -39,42 +39,42 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Pilar: Tecnología -->
                 <div class="clinical-card trust-card-interactive trust-reveal-right opacity-0">
-                    <div class="clinical-icon bg-primary/10 text-primary">
+                    <div class="clinical-icon bg-primary-fixed/30 text-primary">
                         <span class="material-symbols-outlined">biotech</span>
                     </div>
-                    <span class="trust-pill">Vanguardia</span>
-                    <h3 class="text-xl font-light text-slate-900 mb-2">CBCT 3D</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed font-light">Tomografía computarizada de haz cónico que revela detalles invisibles al ojo humano.</p>
+                    <span class="trust-pill text-primary/80">TECNOLOGÍA</span>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Precisión Quirúrgica 3D</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed font-light">Eliminamos las conjeturas con tomografías de haz cónico que revelan estructuras invisibles, vitales para el éxito de tus implantes y cirugías.</p>
                 </div>
 
                 <!-- Pilar: Especialistas -->
                 <div class="clinical-card trust-card-interactive trust-reveal-right opacity-0" style="transition-delay: 0.1s;">
-                    <div class="clinical-icon bg-primary/10 text-primary">
+                    <div class="clinical-icon bg-secondary-fixed/30 text-secondary">
                         <span class="material-symbols-outlined">clinical_notes</span>
                     </div>
-                    <span class="trust-pill">Autoridad</span>
-                    <h3 class="text-xl font-light text-slate-900 mb-2">Respaldo Médico</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed font-light">Resultados validados por radiólogos maxilofaciales certificados, garantizando tu seguridad diagnóstica.</p>
+                    <span class="trust-pill text-secondary/80">AUTORIDAD</span>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Dictamen de Especialistas</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed font-light">Cada imagen es validada por radiólogos maxilofaciales certificados. No entregamos fotos, entregamos certezas clínicas.</p>
                 </div>
 
                 <!-- Pilar: Nube -->
                 <div class="clinical-card trust-card-interactive trust-reveal-right opacity-0" style="transition-delay: 0.2s;">
-                    <div class="clinical-icon bg-primary/10 text-primary">
+                    <div class="clinical-icon bg-primary-fixed-dim/30 text-cyan-700">
                         <span class="material-symbols-outlined">cloud_done</span>
                     </div>
-                    <span class="trust-pill">Agilidad</span>
-                    <h3 class="text-xl font-light text-slate-900 mb-2">OrthoCloud</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed font-light">Tus estudios disponibles al instante para tu doctor desde cualquier dispositivo, en cualquier lugar.</p>
+                    <span class="trust-pill text-cyan-700/80">CONECTIVIDAD</span>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">OrthoCloud Ecosystem</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed font-light">Acceso inmediato para tu odontólogo. Sin CD's, sin esperas; tu diagnóstico fluye digitalmente a la consulta en segundos.</p>
                 </div>
 
                 <!-- Pilar: Experiencia -->
                 <div class="clinical-card trust-card-interactive trust-reveal-right opacity-0" style="transition-delay: 0.3s;">
-                    <div class="clinical-icon bg-primary/10 text-primary">
+                    <div class="clinical-icon bg-cyan-500/10 text-cyan-600">
                         <span class="material-symbols-outlined">sentiment_satisfied</span>
                     </div>
-                    <span class="trust-pill">Confort</span>
-                    <h3 class="text-xl font-light text-slate-900 mb-2">Atención Premium</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed font-light">Un proceso rápido, sin molestias y en instalaciones de primer nivel diseñadas para tu tranquilidad.</p>
+                    <span class="trust-pill text-cyan-600/80">PACIENTE</span>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Cuidado Ultra-Seguro</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed font-light">Protocolos Ultra Low Dose™ que reducen drásticamente la radiación, priorizando tu salud sin sacrificar la nitidez diagnóstica.</p>
                 </div>
             </div>
 

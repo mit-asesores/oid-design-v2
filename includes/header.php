@@ -1,4 +1,4 @@
-<nav id="main-header" class="nav-clinical opacity-0 translate-y-[-20px]">
+<nav id="main-header" class="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-xl border-b border-white/10 nav-clinical opacity-0 translate-y-[-20px]">
     <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
         <!-- Logo -->
         <a class="nav-logo" href="#">
