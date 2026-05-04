@@ -35,9 +35,9 @@ include_once 'includes/head.php';
             <video autoplay muted loop playsinline class="hero-video-bg"><source src="video/video.mp4" type="video/mp4"></video>
             <div class="hero-overlay"></div>
             <div class="hero-text-overlay">
-                <span class="hero-anim-item inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 rounded-full opacity-0">DIAGNÓSTICO DIGITAL DE ALTA TECNOLOGÍA</span>
-                <h1 class="hero-anim-item text-6xl md:text-8xl lg:text-9xl font-light leading-[1] mb-8 opacity-0">La Imagen más <br><span class="font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-white">Clara de tu Sonrisa</span></h1>
-                <p class="hero-anim-item text-lg md:text-xl text-cyan-50/70 max-w-2xl mx-auto mb-10 leading-relaxed opacity-0">Descubre la tranquilidad de un diagnóstico preciso con tecnología 3D de mínima radiación.</p>
+                <span class="hero-anim-item inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 rounded-full opacity-0">MÁXIMA TECNOLOGÍA, MÍNIMA RADIACIÓN</span>
+                <h1 class="hero-anim-item text-6xl md:text-8xl lg:text-9xl font-light leading-[1] mb-8 opacity-0">Tu Salud es Primero. <br><span class="font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-white">Tu Sonrisa También.</span></h1>
+                <p class="hero-anim-item text-lg md:text-xl text-cyan-50/70 max-w-2xl mx-auto mb-10 leading-relaxed opacity-0">Imágenes HD con protocolos Ultra Low Dose™. La tecnología más segura para cuidar de ti mientras vemos lo que otros no ven.</p>
                 <div class="hero-anim-item flex flex-col sm:flex-row gap-5 justify-center opacity-0">
                     <a href="reserva.php" class="btn-primary">AGENDAR MI CITA</a>
                     <a href="estudios.php" class="btn-glass">VER CATÁLOGO 3D</a>
@@ -48,9 +48,6 @@ include_once 'includes/head.php';
 
     <!-- 4.1 Trust Bar (NUEVO: Autoridad Inmediata) -->
     <?php include_once 'includes/trust-bar.php'; ?>
-
-    <!-- 4.2 Stats & Social Proof (Métricas de Impacto) -->
-    <?php include_once 'includes/stats-section.php'; ?>
 
     <!-- 5. Catálogo de Estudios -->
     <section id="estudios" class="max-w-7xl mx-auto pt-10 pb-32 px-4">
@@ -73,7 +70,7 @@ include_once 'includes/head.php';
                 <a class="clinical-link" href="estudios.php">Ver estudios <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             </div>
 
-            <div class="clinical-card opacity-0 service-reveal">
+            <div class="clinical-card service-reveal">
                 <div class="clinical-icon bg-blue-500/10 text-blue-600">
                     <span class="material-symbols-outlined text-3xl">panorama_photosphere</span>
                 </div>
@@ -82,7 +79,7 @@ include_once 'includes/head.php';
                 <a class="clinical-link" href="estudios.php">Ver estudios <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             </div>
 
-            <div class="clinical-card opacity-0 service-reveal">
+            <div class="clinical-card service-reveal">
                 <div class="clinical-icon bg-indigo-500/10 text-indigo-600">
                     <span class="material-symbols-outlined text-3xl">view_in_ar</span>
                 </div>
@@ -91,7 +88,7 @@ include_once 'includes/head.php';
                 <a class="clinical-link" href="estudios.php">Ver estudios <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
             </div>
 
-            <div class="clinical-card opacity-0 service-reveal">
+            <div class="clinical-card service-reveal">
                 <div class="clinical-icon bg-slate-500/10 text-slate-600">
                     <span class="material-symbols-outlined text-3xl">3d_rotation</span>
                 </div>
@@ -101,10 +98,15 @@ include_once 'includes/head.php';
             </div>
         </div>
     </section>
+
+    <!-- 5.1 Stats & Social Proof (Impacto Post-Catálogo) -->
+    <?php include_once 'includes/stats-section.php'; ?>
     
     <!-- Sección de Autoridad y Confianza (Marketing) -->
     <?php include_once 'includes/trust-section.php'; ?>
-    <?php include_once 'includes/stats-section.php'; ?>
+
+    <!-- 5.2 Testimoniales (Prueba Social Humana) -->
+    <?php include_once 'includes/testimonials-section.php'; ?>
 
     <!-- 6. Call to Action Enriquecido (Marketing) -->
     <section class="cta-section py-32">
@@ -131,10 +133,10 @@ include_once 'includes/head.php';
 
                 <!-- Contenido de Acción -->
                 <div class="lg:pl-12">
-                    <span class="hero-badge">INNOVACIÓN CON EMPATÍA</span>
-                    <h2 class="cta-title">¿Listo para una experiencia <br><span>clínica diferente?</span></h2>
+                    <span class="hero-badge">TU SALUD ES NUESTRO COMPROMISO</span>
+                    <h2 class="cta-title">Diagnóstico Preciso. <br><span>Tranquilidad Absoluta.</span></h2>
                     <p class="cta-description">
-                        Únete a los especialistas y pacientes que eligen la precisión absoluta de Ortho Imagen Digital. Garantizamos resultados HD con el respaldo institucional que tú mereces.
+                        Obtén la nitidez diagnóstica que necesitas con la mínima radiación posible. Descubre por qué miles de pacientes y especialistas confían en nuestra tecnología Ultra Low Dose™.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6">
                         <a href="reserva.php" class="btn-primary">

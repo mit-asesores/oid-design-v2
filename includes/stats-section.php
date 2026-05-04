@@ -7,7 +7,7 @@
                     <span class="counter" data-target="15000">+15</span>
                     <span class="text-2xl ml-1 text-cyan-600">k</span>
                 </div>
-                <p class="text-slate-500 text-sm font-light uppercase tracking-widest">Estudios Realizados</p>
+                <p class="text-slate-500 text-sm font-light uppercase tracking-widest">Diagnósticos Exitosos</p>
                 <div class="w-8 h-0.5 bg-cyan-100 mx-auto mt-4 group-hover:w-16 transition-all duration-500"></div>
             </div>
 
@@ -16,7 +16,7 @@
                 <div class="text-4xl md:text-5xl font-bold text-primary mb-2 flex justify-center items-baseline">
                     <span class="counter" data-target="5">0</span>
                 </div>
-                <p class="text-slate-500 text-sm font-light uppercase tracking-widest">Sedes en CDMX</p>
+                <p class="text-slate-500 text-sm font-light uppercase tracking-widest">Clínicas Especializadas</p>
                 <div class="w-8 h-0.5 bg-cyan-100 mx-auto mt-4 group-hover:w-16 transition-all duration-500"></div>
             </div>
 
@@ -26,7 +26,7 @@
                     <span class="counter" data-target="100">0</span>
                     <span class="text-2xl ml-1 text-cyan-600">%</span>
                 </div>
-                <p class="text-slate-500 text-sm font-light uppercase tracking-widest">Precisión Digital</p>
+                <p class="text-slate-500 text-sm font-light uppercase tracking-widest">Certeza Diagnóstica</p>
                 <div class="w-8 h-0.5 bg-cyan-100 mx-auto mt-4 group-hover:w-16 transition-all duration-500"></div>
             </div>
 

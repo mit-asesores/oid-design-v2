@@ -2,7 +2,7 @@
 <section class="w-full bg-white/60 backdrop-blur-md border-y border-slate-100 py-10">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-wrap items-center justify-around gap-y-10 md:gap-x-12 opacity-80 transition-all duration-700">
-            <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400 mb-4 md:mb-0">ALIANZAS ESTRATÉGICAS</span>
+            <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400 mb-4 md:mb-0">EL RESPALDO DE LOS MEJORES</span>
             
             <!-- Cruz Roja -->
             <div class="flex items-center gap-4 group">
