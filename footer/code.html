@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ortho Imagen Digital | Precisión en Visión</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&amp;family=Manrope:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#a1efff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-bright": "#f8f9fa",
+                    "on-background": "#191c1d",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "on-tertiary-container": "#403f3f",
+                    "on-primary-container": "#004650",
+                    "surface-container-highest": "#e1e3e4",
+                    "outline": "#6c797c",
+                    "tertiary-container": "#acabab",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#d9dadb",
+                    "secondary-container": "#91f78e",
+                    "primary-container": "#00bcd4",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005313",
+                    "on-surface": "#191c1d",
+                    "inverse-surface": "#2e3132",
+                    "on-primary-fixed": "#001f25",
+                    "secondary": "#006e1c",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#004e59",
+                    "background": "#f8f9fa",
+                    "on-secondary-fixed": "#002204",
+                    "error": "#ba1a1a",
+                    "primary": "#006876",
+                    "surface-variant": "#e1e3e4",
+                    "secondary-fixed-dim": "#78dc77",
+                    "on-surface-variant": "#3c494c",
+                    "surface-tint": "#006876",
+                    "surface-container": "#edeeef",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#44d8f1",
+                    "tertiary-fixed-dim": "#c8c6c6",
+                    "surface": "#f8f9fa",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f0f1f2",
+                    "tertiary": "#5f5e5e",
+                    "on-secondary-container": "#00731e",
+                    "primary-fixed-dim": "#44d8f1",
+                    "secondary-fixed": "#94f990",
+                    "outline-variant": "#bbc9cc",
+                    "tertiary-fixed": "#e4e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .ethereal-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .aura-blob {
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: 0;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed-dim selection:text-on-primary-fixed overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl rounded-full bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl flex justify-between items-center px-8 py-4 z-50 shadow-[0_20px_50px_rgba(0,104,118,0.08)]">
+<div class="text-xl font-light tracking-widest text-cyan-800 dark:text-cyan-200 uppercase font-headline" style="">
+            Ortho I<span style="color: rgb(0, 104, 118); font-family: Manrope; font-size: 12px; font-weight: 700; letter-spacing: 3.6px; text-align: center; background-color: rgb(248, 249, 250);">&nbsp;Innovación Clínica&nbsp;</span>magen Digital
+        </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-cyan-600 dark:text-cyan-300 font-medium border-b-2 border-cyan-500/50 font-['Inter'] font-light tracking-wide transition-all duration-300 hover:-translate-y-0.5" href="#" style="">Diagnostic Hub</a>
+<a class="text-slate-500 dark:text-slate-400 font-['Inter'] font-light tracking-wide hover:text-cyan-700 dark:hover:text-cyan-300 transition-all duration-300 hover:-translate-y-0.5" href="#" style="">Patient Portal</a>
+<a class="text-slate-500 dark:text-slate-400 font-['Inter'] font-light tracking-wide hover:text-cyan-700 dark:hover:text-cyan-300 transition-all duration-300 hover:-translate-y-0.5" href="#" style="">Clinical Research</a>
+<a class="text-slate-500 dark:text-slate-400 font-['Inter'] font-light tracking-wide hover:text-cyan-700 dark:hover:text-cyan-300 transition-all duration-300 hover:-translate-y-0.5" href="#" style="">Technology</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-label text-sm font-medium tracking-wide shadow-lg hover:-translate-y-1 transition-all active:scale-95" style="">
+                Secure Login
+            </button>
+<span class="material-symbols-outlined text-cyan-700 dark:text-cyan-400 cursor-pointer" style="font-variation-settings: &quot;FILL&quot; 0;">account_circle</span>
+</div>
+</nav>
+<main class="relative pt-32">
+<!-- Background Aura Blobs -->
+<div class="absolute top-[20%] -left-20 w-96 h-96 bg-primary-fixed aura-blob rounded-full"></div>
+<div class="absolute top-[60%] -right-20 w-[30rem] h-[30rem] bg-secondary-fixed aura-blob rounded-full"></div>
+<!-- Hero / Transformation Section -->
+<section class="relative min-h-[716px] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20 mix-blend-multiply" data-alt="High-end medical digital imaging background with soft glowing anatomical details and ethereal cyan light rays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoLWCAX9_DcAj5Wa7B7ROSniEuLZ_sEj3gCWFP5th2ndAfrPrPXSehZFkPjVXB4W0zHxh-0rdD5OqIqCq3FJSMdTa5Ah0G8O1JrzGNaYtNtSb1zubQVOEtIy_Ps6KjA8sSkfdZW9RU-8GNd2dkW_Dv_Rpt8UdnWnm3Zv85sMgj6-DD2wT6CsaEGKOfHGOV7M_8fskaO93QKxyRRVRwiF1NalnaCjyt0LL9tr9_B61FExPXJhVr2pZEV9IMn_LTqmAZvcY29co2u71G" style="">
+</div>
+<div class="relative z-10 max-w-4xl space-y-8">
+<div class="space-y-4">
+<span class="font-label text-xs tracking-[0.3em] uppercase text-primary font-bold" style="">Innovación Clínica</span>
+<h1 class="text-5xl md:text-7xl font-light tracking-tight text-on-surface leading-[1.1]" style="">
+                        ¿Listo para transformar tu <span class="font-bold text-primary italic" style="">diagnóstico</span>?
+                    </h1>
+</div>
+<p class="text-lg md:text-xl text-on-surface-variant font-light max-w-2xl mx-auto leading-relaxed" style="">
+                    Elevamos la precisión radiológica mediante tecnología de vanguardia y un enfoque humano centrado en la excelencia clínica.
+                </p>
+<div class="pt-6">
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-10 py-5 rounded-full font-label text-sm font-bold tracking-[0.1em] shadow-[0_20px_50px_rgba(0,104,118,0.2)] hover:-translate-y-1 transition-all flex items-center gap-3 mx-auto uppercase" style="">
+                        REFERIR UN PACIENTE
+                        <span class="material-symbols-outlined text-sm" style="">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Our Branches Section -->
+<section class="relative py-32 overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 mb-16 flex flex-col items-center text-center">
+<span class="font-label text-xs tracking-[0.3em] uppercase text-secondary font-bold mb-4" style="">Red de Excelencia</span>
+<h2 class="text-4xl font-light tracking-tight text-on-surface" style="">Nuestras Sucursales</h2>
+</div>
+<!-- Infinite-style Carousel Logic -->
+<div class="flex items-center justify-center gap-6 overflow-x-auto no-scrollbar py-12 px-12 md:px-[20%]">
+<!-- Branch 1 (Side) -->
+<div class="flex-shrink-0 w-64 md:w-80 opacity-40 scale-90 grayscale transition-all duration-500">
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.03)] space-y-4">
+<div class="aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Modern clinical reception area with soft lighting and clean white surfaces at Tlahuac branch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo9-Z2z6uYl74w9GS5NQ0qMKmkjcto78en2FpXYUONgdlXqpVOCvlpnv-91SwnRX_2noGCc4_VerYReuiZcA_SgNiXcbXPuYznqi-1Z7uyebxUI6LUenPlzFg9jy73E8hkwiiOsW7cRlpFhs5f28rP49qzFd4eqFER_krDyzu45BBAIHoElFkK4S6CDgas2XF_OiZufWqJJkGTFg0C8gRmcxpN8codr0nBb18GS72XjgxRni6qlIyQiZij75HaIZTDTVXbA6W_90p9" style="">
+</div>
+<h3 class="font-headline text-xl font-light text-on-surface" style="">Tlahuac</h3>
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant" style="">Ciudad de México</p>
+</div>
+</div>
+<!-- Branch 2 (Side) -->
+<div class="flex-shrink-0 w-64 md:w-80 opacity-60 scale-95 transition-all duration-500">
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.03)] space-y-4">
+<div class="aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Futuristic diagnostic room with state-of-the-art imaging equipment at Cantil branch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnXC97_zlSP8r2HHvn-5dTJ_JUOrJCkR5goyD21L9VLgr8vdogk9PK-gbbvDZCrM93RFGt6zgxnFuFGO1nulwGYxdHmFNc8gSkhhTZy5Fa93E56DWnjAF79DNAAZpIEPXYKSkBg9zC13IZFd9D_NEuziFBoH7sGEtWKH4er0wCoeRw0Ri-ujn3k2LA9HEKYJyJ7IDD_bTMUeDY1lmtqRh_lcXsnjowiDG9dq8pKYpCCSWyBKQT_Qm1ZkB0SlHsn6c5sNwJ34bz5gBg" style="">
+</div>
+<h3 class="font-headline text-xl font-light text-on-surface" style="">Cantil</h3>
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant" style="">Coyoacán</p>
+</div>
+</div>
+<!-- Branch 3 (Central Highlight) -->
+<div class="flex-shrink-0 w-80 md:w-[28rem] z-20 scale-110 transition-all duration-700">
+<div class="bg-surface-container-lowest p-8 rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,104,118,0.12)] space-y-6 relative group cursor-pointer">
+<div class="absolute -top-4 -right-4 bg-primary text-white p-3 rounded-full shadow-lg z-30">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<div class="aspect-video rounded-[2rem] overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Premium clinical exterior of the Coapa branch with glass facade and clinical branding in soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6fSbNiMSpkSrg-O0xhWfB9vvkJBW2XAnNdX57NDGFhFgxyTO68CFGm0utpCx_ozFKqfNo3DUlw8vHCbIUtbEGtXASAWkPFGgJAR8Hl0QdxCYezl3yayFc49zMq-UYcfmDSHwmCjXcqJCXvEX86P5poGXxTPqj-9ijEkLCpP7yQ1K-7xPn5o0mu8cx-YGfYn2LIvjsrEYemQo-0Ers5BmvZGbwKaWvd7QKHYaG9RExjHSQBBGXhfyUMxAdIU7oJtlTUzCJMEVQfahG" style="">
+</div>
+<div class="flex justify-between items-end">
+<div class="space-y-2">
+<h3 class="font-headline text-3xl font-light text-on-surface" style="">Coapa</h3>
+<p class="font-label text-xs uppercase tracking-widest text-primary font-bold" style="">Sucursal Matriz</p>
+</div>
+<button class="bg-surface-container-low p-4 rounded-2xl text-primary hover:bg-primary hover:text-white transition-colors" style="">
+<span class="material-symbols-outlined" style="">map</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Branch 4 (Side) -->
+<div class="flex-shrink-0 w-64 md:w-80 opacity-60 scale-95 transition-all duration-500">
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.03)] space-y-4">
+<div class="aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Clean and welcoming waiting room with ergonomic furniture and clinical art at Pedregal branch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXuZO-1xy2YtLcSVRllCj12i3VLZbN91pY2XM7facZ5Tv-oAG1TU7uE9tLUYcQgBnvMhuAW0vT1OUvbzf5clGMSBIJHvdcO38MOyb2X4sbO-FDQL6DnckWm0o13NaID1ug3K6i51pFu9c4g0fH0wRppjN6cb3C9JslTknERplcBsgtlgoXkHOwuMMHx6KuuoxQA2bIZ78BmzEhmLPO9X9rO3o8utWIFi7WpxQgpMGezGxd8UtsUvQWn6xX1URo05RkzZiiGUjw3HXR" style="">
+</div>
+<h3 class="font-headline text-xl font-light text-on-surface" style="">Pedregal</h3>
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant" style="">Álvaro Obregón</p>
+</div>
+</div>
+<!-- Branch 5 (Side) -->
+<div class="flex-shrink-0 w-64 md:w-80 opacity-40 scale-90 grayscale transition-all duration-500">
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.03)] space-y-4">
+<div class="aspect-[4/3] rounded-2xl overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="Consultation room with advanced monitors and dental imaging tools at Lindavista branch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfjKkuoIZ7WhPqv3d86M-8Bw8DQg8cJm8t24Nwr9VUSSwkNkQTXduYaoQuWBy5WLDcDKwWRJ5mQ5lAinxr2hZCYoLgt_mtp1IWbLrO00SvdPjfL0z_bY7pG-S-xacUtvFOZ500hnoKOel1M_VWVaYeelCBo0ZDVmUhLJ4e-8vGl8dmSyMgy9GlJomx3MAfdU6Gr_34Ksye9AtmnqGs5uH8KvD3Z-YPEj4VmHfsLxrQrCz6K1UdKFlbXabei5mTE08CvFCDcymHsEDV" style="">
+</div>
+<h3 class="font-headline text-xl font-light text-on-surface" style="">Lindavista</h3>
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant" style="">Gustavo A. Madero</p>
+</div>
+</div>
+<!-- Peek of next -->
+<div class="flex-shrink-0 w-20 opacity-10">
+<div class="bg-surface-container-low h-full w-full rounded-l-3xl"></div>
+</div>
+</div>
+<!-- Navigation Controls -->
+<div class="flex justify-center gap-4 mt-12">
+<button class="w-12 h-12 rounded-full flex items-center justify-center border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container-highest transition-all" style="">
+<span class="material-symbols-outlined" style="">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container-highest transition-all" style="">
+<span class="material-symbols-outlined" style="">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-20 bg-slate-50 dark:bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto space-y-8 md:space-y-0">
+<div class="flex flex-col md:flex-row items-center gap-8">
+<div class="text-cyan-800 dark:text-cyan-200 font-['Manrope'] text-[10px] uppercase tracking-[0.1em] font-bold" style="">
+                    © 2024 Ortho Imagen Digital. Precision in Vision.
+                </div>
+<div class="flex gap-6">
+<a class="text-slate-400 dark:text-slate-600 font-['Manrope'] text-[10px] uppercase tracking-[0.1em] hover:text-cyan-500 transition-colors" href="#" style="">Privacy Policy</a>
+<a class="text-slate-400 dark:text-slate-600 font-['Manrope'] text-[10px] uppercase tracking-[0.1em] hover:text-cyan-500 transition-colors" href="#" style="">Terms of Service</a>
+<a class="text-slate-400 dark:text-slate-600 font-['Manrope'] text-[10px] uppercase tracking-[0.1em] hover:text-cyan-500 transition-colors" href="#" style="">Accessibility</a>
+</div>
+</div>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-sm" style="">share</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-sm" style="">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

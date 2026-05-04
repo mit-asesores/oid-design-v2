@@ -1,0 +1,17 @@
+# WAMP / Local Server
+/tmp/
+*.log
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Agent specific
+.gemini/
+.agent/
+brain/
+scratch/
+
+# Images generated (Optional: if you want to keep them out, but usually you want them in)
+# img/clinic_*.png

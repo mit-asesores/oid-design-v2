@@ -1,0 +1,40 @@
+# Configuración Oficial de Google Jules AI para el Repositorio
+
+version: "1.0"
+
+jules:
+  # 1. Comportamiento del Agente
+  mode: "pull_request"
+  auto_merge: false  # Proteger la rama principal. Un humano o Antigravity local debe aprobar.
+
+  # 2. Análisis y Generación de Pruebas (Fase 3 & 4)
+  testing:
+    framework: "junit5"
+    coverage_target: 80
+    mocking_framework: "mockito"
+    build_command: "./mvnw clean test"
+    # Instrucciones específicas inyectadas al LLM de Jules
+    custom_instructions: |
+      - Escribe siempre Javadoc en formato Markdown (JEP-467) comenzando con /// en lugar de /**
+      - Si encuentras código acoplado (Spring MVC tradicional), mantenlo a menos que se te indique explícitamente refactorizarlo.
+      - NUNCA subas directamente a `main`.
+      - **Soporte L3 (Auto-Fix):** Cuando el ticket en `.agent/backlog/tickets/` contenga imágenes (.png/.jpg) sobre un bug del frontend, utiliza tu visión computacional para rastrear el elemento UI en el código (HTML/HTMX) y vincularlo al Controller problemático para hacer el Pull Request de corrección.
+
+  # 3. Integración con "Backlog as Code" (Zero-API Strategy)
+  reporting:
+    # Cuando Jules detecte una anomalía o suba tests, creará un archivo en esta ruta:
+    issue_tracking_dir: ".agent/backlog"
+    issue_template: |
+      # Ticket Generado por Jules: {TITLE}
+      - **Fecha:** {DATE}
+      - **Rama de Revisión:** {BRANCH_NAME}
+      - **Descripción:**
+      {DESCRIPTION}
+      - **Archivos Modificados:**
+      {FILES_CHANGED}
+
+  # 4. Exclusiones
+  ignore:
+    - "**/.agent/**"
+    - "**/node_modules/**"
+    - "docs/**"
