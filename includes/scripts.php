@@ -228,5 +228,62 @@
     } catch (e) {
         console.error("Swiper init error:", e);
     }
+
+    // --- CTA ASSEMBLY ANIMATION ---
+    // Patrón: Timeline PAUSADA + ScrollTrigger.create() con onEnter
+    // Esto es inmune al recálculo de posiciones causado por el pin del scrollytelling
+    const ctaGroup = document.querySelector(".cta-visual-group");
+    if (ctaGroup) {
+        // Estado inicial: OCULTO
+        gsap.set(".cta-aura", { opacity: 0, scale: 0.5 });
+        gsap.set(".cta-image-wrapper", { opacity: 0, y: 80, scale: 0.92 });
+        gsap.set(".cta-testimonial", { opacity: 0, x: 60, y: 30, scale: 0.85 });
+        gsap.set(".cta-title", { opacity: 0, y: 40 });
+        gsap.set(".cta-description", { opacity: 0, y: 25 });
+
+        // Timeline PAUSADA - no se reproduce sola
+        const ctaTL = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
+
+        ctaTL
+            .to(".cta-aura", { opacity: 1, scale: 1, duration: 1.8, ease: "power2.out" })
+            .to(".cta-image-wrapper", { opacity: 1, y: 0, scale: 1, duration: 1.4, ease: "power4.out" }, "-=1.4")
+            .to(".cta-testimonial", { opacity: 1, x: 0, y: 0, scale: 1, duration: 1.2, ease: "back.out(1.4)" }, "-=0.8")
+            .to(".cta-title", { opacity: 1, y: 0, duration: 1 }, "-=1.0")
+            .to(".cta-description", { opacity: 1, y: 0, duration: 0.8 }, "-=0.7");
+
+        // Observador visual REAL: se dispara cuando la sección entra al viewport
+        let ctaHasPlayed = false;
+        const ctaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !ctaHasPlayed) {
+                    ctaHasPlayed = true;
+                    ctaTL.play();
+                    ctaObserver.disconnect(); // Una sola vez
+                }
+            });
+        }, { threshold: 0.15 }); // Se activa cuando el 15% de la sección es visible
+
+        ctaObserver.observe(document.querySelector(".cta-section"));
+
+        // Mouse Parallax Interactivo para el Testimonio
+        const testimonial = ctaGroup.querySelector('.cta-testimonial');
+        if (testimonial) {
+            ctaGroup.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = ctaGroup.getBoundingClientRect();
+                const x = (e.clientX - left) / width - 0.5;
+                const y = (e.clientY - top) / height - 0.5;
+                gsap.to(testimonial, {
+                    x: x * 35,
+                    y: y * 35,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    overwrite: "auto"
+                });
+            });
+            ctaGroup.addEventListener('mouseleave', () => {
+                gsap.to(testimonial, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.5)" });
+            });
+        }
+    }
 });
 </script>

@@ -113,12 +113,17 @@ include_once 'includes/head.php';
         <div class="max-w-7xl mx-auto px-6">
             <div class="cta-grid">
                 
-                <!-- Imagen Humana + Testimonio -->
-                <div class="relative">
+                <!-- Imagen Humana + Testimonio con Efecto de Profundidad -->
+                <div class="relative cta-visual-group">
+                    <!-- Aura de fondo para impacto visual -->
+                    <div class="cta-aura"></div>
+                    
                     <div class="cta-image-wrapper">
-                        <img src="img/human_experience.png" alt="Atención Clínica Ortho Imagen Digital">
+                        <img src="img/human_experience.png" alt="Atención Clínica Ortho Imagen Digital" class="cta-main-img">
                     </div>
-                    <div class="cta-testimonial">
+                    
+                    <!-- Card de Testimonio (Flotará independientemente) -->
+                    <div class="cta-testimonial parallax-element" data-depth="0.2">
                         <div class="flex gap-1 mb-2">
                             <span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
                             <span class="material-symbols-outlined text-yellow-400 text-sm">star</span>
