@@ -590,18 +590,35 @@ html, body {
 
 /* --- TRUST & AUTHORITY SECTION --- */
 
-.visual-anchor {
+.visual-anchor-container {
     position: absolute;
     top: 30%;
-    right: 0;
-    width: 30%;
-    max-width: 250px;
-    opacity: 0.1;
-    transform: translateY(-50%);
-    pointer-events: none;
+    right: -5%;
+    width: 45%;
+    max-width: 600px;
     z-index: 0;
-    filter: blur(2px);
-    mix-blend-mode: multiply;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.visual-anchor {
+    width: 100%;
+    height: auto;
+    opacity: 0.35;
+    filter: drop-shadow(0 0 30px rgba(0, 188, 212, 0.2));
+    mix-blend-mode: normal;
+    will-change: transform, opacity;
+}
+
+@media (max-width: 768px) {
+    .visual-anchor-container {
+        width: 60%;
+        right: -10%;
+        top: 40%;
+    }
+    .visual-anchor {
+        opacity: 0.2;
+    }
 }
 
 @media (max-width: 768px) {

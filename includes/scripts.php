@@ -148,17 +148,28 @@
         });
     });
 
-    // 2. Animación de Entrada con GSAP
-    gsap.to(".visual-anchor", {
+    // 2. Animación de Entrada y Paralaje (Contenedor)
+    gsap.to(".visual-anchor-container", {
         scrollTrigger: {
             trigger: "#autoridad",
             start: "top bottom",
             end: "bottom top",
             scrub: 1.5
         },
-        y: 100,
-        rotation: 25,
+        y: 120,
+        rotation: 10,
         ease: "none"
+    });
+
+    // 2.1 Efecto de Flotación (Holograma vivo)
+    gsap.to(".visual-anchor", {
+        y: "+=20",
+        x: "+=10",
+        rotation: "+=5",
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
     });
 
     gsap.to(".trust-reveal-left", {

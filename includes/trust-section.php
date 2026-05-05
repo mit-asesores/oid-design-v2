@@ -1,6 +1,8 @@
 <section class="relative py-32 overflow-hidden bg-slate-50/50" id="autoridad">
-    <!-- Ancla Visual 3D (Holograma) -->
-    <img src="img/holographic_molar.png" class="visual-anchor" alt="Tecnología Dental 3D">
+    <!-- Ancla Visual 3D (Holograma) con Contenedor para Animación de Capas -->
+    <div class="visual-anchor-container">
+        <img src="img/holographic_molar.png" class="visual-anchor" alt="Tecnología Dental 3D">
+    </div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
