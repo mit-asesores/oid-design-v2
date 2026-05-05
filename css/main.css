@@ -13,6 +13,15 @@
     --white-glass: rgba(255, 255, 255, 0.6);
 }
 
+html, body {
+    width: 100%;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    margin: 0;
+    padding: 0;
+}
+
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
@@ -405,14 +414,10 @@
     overflow-x: auto;
     padding-top: 5rem;
     padding-bottom: 5rem;
-    width: 100vw;
+    width: 100%;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    padding-left: calc(50vw - 160px);
-    padding-right: calc(50vw - 160px);
+    padding-left: 0;
+    padding-right: 0;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
@@ -585,16 +590,24 @@
 
 .visual-anchor {
     position: absolute;
-    top: 50%;
-    right: -5%;
-    width: 50%;
-    height: auto;
-    opacity: 0.25;
-    transform: translateY(-50%) rotate(15deg);
+    top: 30%;
+    right: 0;
+    width: 30%;
+    max-width: 250px;
+    opacity: 0.1;
+    transform: translateY(-50%);
     pointer-events: none;
     z-index: 0;
-    filter: drop-shadow(0 0 50px rgba(0, 188, 212, 0.2));
+    filter: blur(2px);
     mix-blend-mode: multiply;
+}
+
+@media (max-width: 768px) {
+    .visual-anchor {
+        width: 50%;
+        right: -5%;
+        opacity: 0.05;
+    }
 }
 
 .trust-card-interactive::after {
@@ -717,18 +730,23 @@
 .nav-clinical {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: white; /* Volvemos a sólido para claridad */
+    left: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    z-index: 50; 
+    background: white; 
     border-bottom: 1px solid rgba(0, 188, 212, 0.1);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     padding: 0;
+    overflow: hidden !important;
 }
 
 /* Espaciado para páginas que NO son el inicio */
 body.not-home main {
-    padding-top: 96px; /* Restauramos el espacio para que el hero no se pegue arriba */
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    position: relative;
 }
 
 .nav-link {
@@ -783,6 +801,9 @@ body.not-home main {
     background-color: #000;
     position: relative;
     z-index: 100;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
 }
 
 .scrolly-window {

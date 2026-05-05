@@ -43,32 +43,97 @@
 
         // 2. Micro-transitions (Se activa al terminar el scrolly)
         window.revealHeroContent = () => {
-            gsap.to(".hero-anim-item", { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: "power3.out" });
+            if (document.querySelector(".hero-anim-item")) {
+                gsap.to(".hero-anim-item", { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: "power3.out" });
+            }
         };
 
-        // 4. Parallax del Video Hero (Ajustado)
-        gsap.to(".hero-video-bg", { 
-            scrollTrigger: { 
-                trigger: ".hero-video-container", 
-                start: "top top", 
-                end: "bottom top", 
-                scrub: true 
-            }, 
-            y: 80 
-        });
+        // 4. Parallax del Video Hero
+        if (document.querySelector(".hero-video-bg") && document.querySelector(".hero-video-container")) {
+            gsap.to(".hero-video-bg", { 
+                scrollTrigger: { 
+                    trigger: ".hero-video-container", 
+                    start: "top top", 
+                    end: "bottom top", 
+                    scrub: true 
+                }, 
+                y: 80 
+            });
+        }
 
-        // 5. Animación de Servicios (Stagger)
-        gsap.to(".service-reveal", {
-            scrollTrigger: {
-                trigger: "#servicios",
-                start: "top 80%",
-            },
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power3.out"
-        });
+        // 5. Animación de Servicios
+        if (document.querySelector(".service-reveal") && document.querySelector("#estudios")) {
+            gsap.to(".service-reveal", {
+                scrollTrigger: {
+                    trigger: "#estudios",
+                    start: "top 80%",
+                },
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                stagger: 0.15,
+                ease: "power3.out"
+            });
+        }
+
+        // 6. Lógica de Menú Móvil (Hardened)
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu-overlay');
+        const menuLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (mobileBtn && mobileMenu) {
+            // Estado Inicial Silencioso - Forzado
+            gsap.set(mobileMenu, { x: "100%", opacity: 0, display: "none", pointerEvents: "none" });
+
+            let isMenuOpen = false;
+
+            const toggleMenu = (e) => {
+                if (!isMenuOpen) {
+                    isMenuOpen = true;
+                    mobileMenu.classList.add('active');
+                    document.body.classList.add('mobile-menu-open');
+                    
+                    mobileBtn.innerHTML = '<span class="material-symbols-outlined text-3xl">close</span>';
+                    mobileBtn.style.color = "white";
+
+                    gsap.killTweensOf(mobileMenu);
+                    gsap.set(mobileMenu, { display: "flex", pointerEvents: "auto" });
+                    gsap.to(mobileMenu, {
+                        x: 0,
+                        opacity: 1,
+                        duration: 0.5,
+                        ease: "expo.out"
+                    });
+
+                    if (menuLinks.length > 0) {
+                        gsap.fromTo(menuLinks, 
+                            { opacity: 0, y: 20 },
+                            { opacity: 1, y: 0, stagger: 0.1, duration: 0.4, delay: 0.2, ease: "power2.out" }
+                        );
+                    }
+                } else {
+                    isMenuOpen = false;
+                    gsap.to(mobileMenu, {
+                        x: "100%",
+                        opacity: 0,
+                        duration: 0.4,
+                        ease: "expo.in",
+                        onComplete: () => {
+                            mobileMenu.classList.remove('active');
+                            gsap.set(mobileMenu, { display: "none", pointerEvents: "none" });
+                            document.body.classList.remove('mobile-menu-open');
+                            mobileBtn.innerHTML = '<span class="material-symbols-outlined text-3xl">menu</span>';
+                            mobileBtn.style.color = "";
+                        }
+                    });
+                }
+            };
+
+            mobileBtn.addEventListener('click', toggleMenu);
+            menuLinks.forEach(link => link.addEventListener('click', () => {
+                if (isMenuOpen) toggleMenu();
+            }));
+        }
 
     // --- INTERACCIONES DE CONFIANZA ---
     // 1. Efecto Magnético (Brillo siguiendo al mouse)

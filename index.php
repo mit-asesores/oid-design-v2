@@ -160,7 +160,7 @@ include_once 'includes/head.php';
 
     <!-- 8. Footer -->
     <?php include_once 'includes/footer.php'; ?>
-</main>
+</main>    </div>
 
 <!-- 9. Scripts Finales -->
 <?php include_once 'includes/scripts.php'; ?>

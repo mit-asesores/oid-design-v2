@@ -1,6 +1,6 @@
 <section class="relative py-20 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <!-- Métrica 1 -->
             <div class="text-center group">
                 <div class="text-4xl md:text-5xl font-bold text-primary mb-2 flex justify-center items-baseline">

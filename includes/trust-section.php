@@ -28,7 +28,7 @@
                 </div>
 
                 <!-- Estadísticas de Confianza -->
-                <div class="grid grid-cols-3 gap-6 mb-12">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 text-center sm:text-left">
                     <div>
                         <span class="block text-2xl font-bold text-slate-900">+50k</span>
                         <span class="text-[10px] text-slate-500 uppercase">Diagnósticos</span>

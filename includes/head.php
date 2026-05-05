@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>OrthoImagenDigital | Diagnóstico Dental de Alta Precisión y Baja Radiación</title>
     
     <!-- AI-SEO & Semantic Metadata -->
@@ -81,16 +81,7 @@
             backdrop-filter: blur(20px) !important;
             border: 1px solid rgba(255, 255, 255, 0.15) !important;
         }
-        .visual-anchor {
-            position: absolute;
-            top: 10% !important;
-            right: -10% !important;
-            width: 70% !important;
-            opacity: 0.25 !important;
-            filter: blur(1px);
-            z-index: 0;
-            pointer-events: none;
-        }
+        /* Visual Anchor contained in main.css */
 
         /* --- CINEMATIC BRANCHES (DYNAMIC FOCUS) --- */
         .branches-slider .swiper-slide {
@@ -182,8 +173,8 @@
 
         /* --- MAGNETIC AURA EFFECT --- */
         .branches-slider {
-            padding: 60px 0 100px 0 !important; /* Espacio vertical para Aura y Elevación */
-            overflow: visible !important;
+            padding: 60px 0 100px 0 !important; 
+            overflow: hidden !important; /* Evita que las slides estallen el viewport */
         }
 
         .swiper-slide {
@@ -394,10 +385,51 @@
             text-align: center;
             font-weight: 600;
         }
+
+        html, body {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+        }
+
+        /* --- MOBILE MENU REFINEMENTS --- */
+        html.mobile-menu-open, body.mobile-menu-open {
+            overflow: hidden !important;
+            height: 100vh !important;
+            width: 100%;
+        }
+        
+        #mobile-menu-overlay {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        }
+
+        #mobile-menu-overlay.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .mobile-nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-link:active {
+            color: #006876;
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .branches-slider .swiper-slide {
+                width: 320px;
+            }
+            .branch-card-premium {
+                height: 520px;
+            }
+        }
     </style>
 
     <!-- Swiper.js -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
-<body class="bg-surface-bright font-sans text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<body class="bg-surface-bright font-sans text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+    <div id="page-wrapper" class="w-full overflow-x-hidden relative">
