@@ -46,7 +46,7 @@
             gsap.to(".hero-anim-item", { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: "power3.out" });
         };
 
-        // 3. Parallax del Video Hero
+        // 4. Parallax del Video Hero (Ajustado)
         gsap.to(".hero-video-bg", { 
             scrollTrigger: { 
                 trigger: ".hero-video-container", 
@@ -56,68 +56,6 @@
             }, 
             y: 80 
         });
-
-        // 4. Carrusel de Sucursales Inteligente
-        const carousel = document.getElementById('branches-carousel');
-        const nextBtn = document.getElementById('next-branch');
-        const prevBtn = document.getElementById('prev-branch');
-        
-        if (carousel && nextBtn && prevBtn) {
-            const updateActiveBranch = () => {
-                const items = carousel.querySelectorAll('.branch-item');
-                const carouselCenter = carousel.offsetWidth / 2;
-                
-                let closestItem = null;
-                let minDistance = Infinity;
-
-                items.forEach(item => {
-                    const rect = item.getBoundingClientRect();
-                    const carouselRect = carousel.getBoundingClientRect();
-                    const itemCenter = rect.left + (rect.width / 2) - carouselRect.left;
-                    const distance = Math.abs(carouselCenter - itemCenter);
-
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestItem = item;
-                    }
-                });
-
-                items.forEach(item => {
-                    item.classList.remove('branch-card--active');
-                });
-
-                if (closestItem) {
-                    closestItem.classList.add('branch-card--active');
-                }
-            };
-
-            // Ejecutar al cargar y al desplazar
-            setTimeout(updateActiveBranch, 500);
-            carousel.addEventListener('scroll', updateActiveBranch);
-
-            const step = () => {
-                const firstCard = carousel.querySelector('.branch-item');
-                return firstCard ? firstCard.offsetWidth + 32 : 352;
-            };
-
-            nextBtn.addEventListener('click', () => { 
-                carousel.scrollLeft += step();
-            });
-            
-            prevBtn.addEventListener('click', () => { 
-                carousel.scrollLeft -= step();
-            });
-        }
-        // Centrado Inicial: Ir a Coapa (Índice 2) de forma silenciosa
-    const coapaCard = carousel.querySelectorAll('.branch-item')[2];
-    if(coapaCard) {
-        setTimeout(() => {
-            // Calculamos la posición para centrar la tarjeta sin mover la ventana global
-            const scrollPos = coapaCard.offsetLeft - (carousel.offsetWidth / 2) + (coapaCard.offsetWidth / 2);
-            carousel.scrollLeft = scrollPos;
-            checkCenter(); // Resaltar visualmente
-        }, 100);
-    }
 
         // 5. Animación de Servicios (Stagger)
         gsap.to(".service-reveal", {
@@ -180,6 +118,7 @@
         stagger: 0.15,
         ease: "power3.out"
     });
+
     // 3. Header dinámico al hacer scroll
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
@@ -189,5 +128,29 @@
             header.classList.remove('scrolled');
         }
     });
+
+    // 5. Cinematic Swiper Initialization (Aislado para evitar conflictos)
+    try {
+        if (document.querySelector('.branches-slider')) {
+            const branchesSwiper = new Swiper('.branches-slider', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                spaceBetween: 40,
+                loop: false, /* Desactivado para evitar el salto al inicio */
+                speed: 600,
+                grabCursor: true,
+                watchSlidesProgress: true,
+                navigation: {
+                    nextEl: '.branches-slider-container .branch-next',
+                    prevEl: '.branches-slider-container .branch-prev',
+                },
+                keyboard: {
+                    enabled: true,
+                }
+            });
+        }
+    } catch (e) {
+        console.error("Swiper init error:", e);
+    }
 });
 </script>

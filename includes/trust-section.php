@@ -6,7 +6,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             
             <!-- Texto de Marketing (Con clases para animación GSAP) -->
-            <div class="trust-reveal-left opacity-0">
+            <div class="trust-reveal-left">
                 <span class="section-subtitle uppercase tracking-widest text-xs font-bold text-cyan-600 mb-4 block">EL ESTÁNDAR DE EXCELENCIA</span>
                 <h2 class="section-title mb-8 leading-tight text-4xl md:text-5xl font-light text-slate-900">La Ingeniería de la <br/><span class="text-primary font-bold">Certeza Clínica</span></h2>
                 <p class="text-slate-600 font-light text-lg leading-relaxed mb-12">
@@ -38,7 +38,7 @@
             <!-- Grid de Pilares de Valor (Unificado con componentes globales) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Pilar: Tecnología -->
-                <div class="clinical-card trust-card-interactive trust-reveal-right opacity-0">
+                <div class="clinical-card trust-card-interactive trust-reveal-right">
                     <div class="clinical-icon bg-primary-fixed/30 text-primary">
                         <span class="material-symbols-outlined">biotech</span>
                     </div>
@@ -48,7 +48,7 @@
                 </div>
 
                 <!-- Pilar: Especialistas -->
-                <div class="clinical-card trust-card-interactive trust-reveal-right opacity-0" style="transition-delay: 0.1s;">
+                <div class="clinical-card trust-card-interactive trust-reveal-right" style="transition-delay: 0.1s;">
                     <div class="clinical-icon bg-secondary-fixed/30 text-secondary">
                         <span class="material-symbols-outlined">clinical_notes</span>
                     </div>
@@ -58,7 +58,7 @@
                 </div>
 
                 <!-- Pilar: Nube -->
-                <div class="clinical-card trust-card-interactive trust-reveal-right opacity-0" style="transition-delay: 0.2s;">
+                <div class="clinical-card trust-card-interactive trust-reveal-right" style="transition-delay: 0.2s;">
                     <div class="clinical-icon bg-primary-fixed-dim/30 text-cyan-700">
                         <span class="material-symbols-outlined">cloud_done</span>
                     </div>
@@ -68,7 +68,7 @@
                 </div>
 
                 <!-- Pilar: Experiencia -->
-                <div class="clinical-card trust-card-interactive trust-reveal-right opacity-0" style="transition-delay: 0.3s;">
+                <div class="clinical-card trust-card-interactive trust-reveal-right" style="transition-delay: 0.3s;">
                     <div class="clinical-icon bg-cyan-500/10 text-cyan-600">
                         <span class="material-symbols-outlined">sentiment_satisfied</span>
                     </div>
