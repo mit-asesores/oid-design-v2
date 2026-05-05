@@ -62,8 +62,9 @@
 
     <!-- Footer Bottom -->
     <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-slate-100 relative z-10">
-        <div class="footer-copy">
-            © 2024 ORTHO IMAGEN DIGITAL. INNOVACIÓN EN DIAGNÓSTICO MAXILOFACIAL.
+        <div class="footer-copy flex flex-col md:flex-row justify-between items-center gap-4">
+            <span>© 2026 ORTHO IMAGEN DIGITAL. INNOVACIÓN EN DIAGNÓSTICO MAXILOFACIAL.</span>
+            <span class="text-[10px] opacity-50 tracking-widest uppercase">Última actualización: Mayo 2026</span>
         </div>
     </div>
 

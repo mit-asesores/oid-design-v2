@@ -152,6 +152,9 @@ include_once 'includes/head.php';
         </div>
     </section>
 
+    <!-- 6.5 Preguntas Frecuentes (AI SEO & Trust) -->
+    <?php include_once 'includes/faq-section.php'; ?>
+
     <!-- 7. Sucursales (Carousel) -->
     <?php include_once 'includes/branches.php'; ?>
 

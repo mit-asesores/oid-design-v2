@@ -9,9 +9,39 @@
             <div class="trust-reveal-left">
                 <span class="section-subtitle uppercase tracking-widest text-xs font-bold text-cyan-600 mb-4 block">EL ESTÁNDAR DE EXCELENCIA</span>
                 <h2 class="section-title mb-8 leading-tight text-4xl md:text-5xl font-light text-slate-900">La Ingeniería de la <br/><span class="text-primary font-bold">Certeza Clínica</span></h2>
-                <p class="text-slate-600 font-light text-lg leading-relaxed mb-12">
+                <p class="text-slate-600 font-light text-lg leading-relaxed mb-8">
                     En <span class="font-semibold text-slate-900">Ortho Imagen Digital</span>, la precisión no es negociable. Fusionamos tecnología 3D de vanguardia con un criterio humano experto para entregar diagnósticos infalibles que eliminan cualquier margen de error en tu tratamiento.
                 </p>
+
+                <!-- Cita de Autoridad (E-E-A-T) -->
+                <div class="mb-12 p-6 bg-white rounded-2xl border-l-4 border-primary shadow-sm">
+                    <p class="text-slate-700 italic mb-4">"La tecnología solo es valiosa cuando está al servicio de la salud humana. En OID, garantizamos que cada milímetro de imagen digital salve tiempo y mejore el pronóstico de nuestros pacientes."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+                            <img src="img/expert_avatar.png" alt="Dr. Arturo Estrada" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-slate-900">Dr. Arturo Estrada</span>
+                            <span class="block text-[10px] text-primary uppercase tracking-widest">Director Médico OID</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estadísticas de Confianza -->
+                <div class="grid grid-cols-3 gap-6 mb-12">
+                    <div>
+                        <span class="block text-2xl font-bold text-slate-900">+50k</span>
+                        <span class="text-[10px] text-slate-500 uppercase">Diagnósticos</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-bold text-primary">90%</span>
+                        <span class="text-[10px] text-slate-500 uppercase">Menos Radiación</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-bold text-slate-900">100%</span>
+                        <span class="text-[10px] text-slate-500 uppercase">Especialistas</span>
+                    </div>
+                </div>
                 
                 <div class="flex flex-col gap-6">
                     <div class="flex items-start gap-4">
