@@ -201,7 +201,7 @@ include_once 'includes/head.php';
                         </div>
                         <h4 class="study-card-title">ATM Funcional</h4>
                         <p class="study-card-body">Análisis dinámico de la articulación con nitidez 3D superior.</p>
-                        <a href="reserva.php" class="study-card-link">Agendar cita →</a>
+                        <a href="citas.php" class="study-card-link">Agendar cita →</a>
                     </div>
                 </div>
 
@@ -210,12 +210,12 @@ include_once 'includes/head.php';
                     <div class="study-card-luxury">
                         <h4 class="study-card-title">Modelos de Estudio</h4>
                         <p class="study-card-body">Duplicado físico de alta fidelidad para planificación y registro.</p>
-                        <a href="reserva.php" class="study-card-link">Solicitar estudio →</a>
+                        <a href="citas.php" class="study-card-link">Solicitar estudio →</a>
                     </div>
                     <div class="study-card-luxury">
                         <h4 class="study-card-title">Fotografía Clínica</h4>
                         <p class="study-card-body">Registro visual macro de alta gama para análisis facial.</p>
-                        <a href="reserva.php" class="study-card-link">Solicitar estudio →</a>
+                        <a href="citas.php" class="study-card-link">Solicitar estudio →</a>
                     </div>
                 </div>
 
@@ -227,7 +227,7 @@ include_once 'includes/head.php';
                         </div>
                         <h4 class="study-card-title">Escaneo Intraoral</h4>
                         <p class="study-card-body">Flujo 100% digital con tecnología de vanguardia.</p>
-                        <a href="reserva.php" class="study-card-link">Agendar escaneo →</a>
+                        <a href="citas.php" class="study-card-link">Agendar escaneo →</a>
                     </div>
                 </div>
 
@@ -236,7 +236,7 @@ include_once 'includes/head.php';
                     <div class="study-card-luxury">
                         <h4 class="study-card-title">Paquetes Quirúrgicos</h4>
                         <p class="study-card-body">Combinación de estudios optimizada para procedimientos específicos.</p>
-                        <a href="reserva.php" class="study-card-link">Ver paquetes →</a>
+                        <a href="citas.php" class="study-card-link">Ver paquetes →</a>
                     </div>
                 </div>
             </div>
@@ -283,7 +283,7 @@ include_once 'includes/head.php';
                             <div class="px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold tracking-widest text-slate-400 uppercase">ALTA DEFINICIÓN</div>
                         </div>
                         <div class="premium-reveal">
-                            <a href="reserva.php" class="btn-editorial-cta">Agendar este estudio</a>
+                            <a href="citas.php" class="btn-editorial-cta">Agendar este estudio</a>
                         </div>
                     </div>
                 </div>
@@ -302,7 +302,7 @@ include_once 'includes/head.php';
                             <div class="px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold tracking-widest text-slate-400 uppercase">COLOR REAL</div>
                         </div>
                         <div class="premium-reveal">
-                            <a href="reserva.php" class="btn-editorial-cta">Agendar este estudio</a>
+                            <a href="citas.php" class="btn-editorial-cta">Agendar este estudio</a>
                         </div>
                     </div>
                     <div class="lg:w-7/12 relative order-1 lg:order-2 group">
@@ -339,7 +339,7 @@ include_once 'includes/head.php';
                             <div class="px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold tracking-widest text-slate-400 uppercase">BAJA RADIACIÓN</div>
                         </div>
                         <div class="premium-reveal">
-                            <a href="reserva.php" class="btn-editorial-cta">Agendar este estudio</a>
+                            <a href="citas.php" class="btn-editorial-cta">Agendar este estudio</a>
                         </div>
                     </div>
                 </div>
@@ -373,7 +373,7 @@ include_once 'includes/head.php';
                             <div class="px-6 py-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full text-[10px] font-bold tracking-widest text-slate-500 uppercase shadow-sm">ULTRA LOW DOSE</div>
                         </div>
                         <div class="premium-reveal">
-                            <a href="reserva.php" class="btn-primary-cinematic inline-flex items-center gap-3">
+                            <a href="citas.php" class="btn-primary-cinematic inline-flex items-center gap-3">
                                 Agendar este estudio
                                 <span class="material-symbols-outlined">arrow_forward</span>
                             </a>
@@ -399,7 +399,7 @@ include_once 'includes/head.php';
                             <div class="px-6 py-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full text-[10px] font-bold tracking-widest text-slate-500 uppercase shadow-sm">DIGITAL WORKFLOW</div>
                         </div>
                         <div class="premium-reveal">
-                            <a href="reserva.php" class="btn-primary-cinematic inline-flex items-center gap-3">
+                            <a href="citas.php" class="btn-primary-cinematic inline-flex items-center gap-3">
                                 Agendar este estudio
                                 <span class="material-symbols-outlined">arrow_forward</span>
                             </a>
@@ -425,7 +425,7 @@ include_once 'includes/head.php';
                             <div class="px-6 py-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full text-[10px] font-bold tracking-widest text-slate-500 uppercase shadow-sm">HD RESOLUTION</div>
                         </div>
                         <div class="premium-reveal">
-                            <a href="reserva.php" class="btn-primary-cinematic inline-flex items-center gap-3">
+                            <a href="citas.php" class="btn-primary-cinematic inline-flex items-center gap-3">
                                 Agendar este estudio
                                 <span class="material-symbols-outlined">arrow_forward</span>
                             </a>
@@ -451,7 +451,7 @@ include_once 'includes/head.php';
                             <div class="px-6 py-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full text-[10px] font-bold tracking-widest text-slate-500 uppercase shadow-sm">IA ANALYSIS</div>
                         </div>
                         <div class="premium-reveal">
-                            <a href="reserva.php" class="btn-primary-cinematic inline-flex items-center gap-3">
+                            <a href="citas.php" class="btn-primary-cinematic inline-flex items-center gap-3">
                                 Agendar este estudio
                                 <span class="material-symbols-outlined">arrow_forward</span>
                             </a>

@@ -39,7 +39,7 @@ include_once 'includes/head.php';
                 <h1 class="hero-anim-item text-4xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-6 opacity-0">Tu Salud es Primero. <br><span class="font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-white">Tu Sonrisa También.</span></h1>
                 <p class="hero-anim-item text-base md:text-lg text-cyan-50/70 max-w-xl mx-auto mb-8 leading-relaxed opacity-0">Imágenes HD con protocolos Ultra Low Dose™. La tecnología más segura para cuidar de ti mientras vemos lo que otros no ven.</p>
                 <div class="hero-anim-item flex flex-col sm:flex-row gap-5 justify-center opacity-0">
-                    <a href="reserva.php" class="btn-primary">AGENDAR MI CITA</a>
+                    <a href="citas.php" class="btn-primary">AGENDAR MI CITA</a>
                     <a href="estudios.php" class="btn-glass">VER CATÁLOGO 3D</a>
                 </div>
             </div>
@@ -144,7 +144,7 @@ include_once 'includes/head.php';
                         Obtén la nitidez diagnóstica que necesitas con la mínima radiación posible. Descubre por qué miles de pacientes y especialistas confían en nuestra tecnología Ultra Low Dose™.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6">
-                        <a href="reserva.php" class="btn-primary">
+                        <a href="citas.php" class="btn-primary">
                             ASEGURAR MI CITA <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </a>
                         <a href="index.php#sucursales" class="btn-glass">

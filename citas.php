@@ -1,64 +1,115 @@
-<?php include_once 'includes/head.php'; ?>
+<?php 
+$pageTitle = "Agendar Cita | OrthoImagenDigital";
+$pageDesc = "Reserva tu estudio radiológico o tomográfico en cualquiera de nuestras sucursales con tecnología de vanguardia.";
+include_once 'includes/head.php'; 
+?>
 <?php include_once 'includes/header.php'; ?>
 
 <style>
-    /* 1. LAYOUT & CORE */
-    nav#main-header { z-index: 1000 !important; background: white !important; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
-    main#booking-app { padding-top: 140px !important; }
+    /* 1. LAYOUT & CORE - ORTHO-PREMIUM DESIGN SYSTEM */
+    nav#main-header { z-index: 1000 !important; background: rgba(255, 255, 255, 0.8) !important; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+    main#booking-app { padding-top: 160px !important; background: radial-gradient(circle at top right, #f8fafc, #f1f5f9); }
     
     .booking-step {
-        @apply bg-white rounded-[3.5rem] p-10 shadow-2xl shadow-slate-200/50 flex flex-col border border-slate-50 relative overflow-hidden transition-all duration-700;
+        background: white;
+        border-radius: 4rem;
+        padding: 3rem;
+        box-shadow: 0 50px 100px -20px rgba(15, 23, 42, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    #studies-grid { min-height: auto; max-height: none; }
-    
-    #filter-container.expanded {
-        max-height: 5000px !important;
-        opacity: 1 !important;
-        margin-top: 1.5rem !important;
-        pointer-events: auto !important;
-    }
-
-    /* 2. SELECTION CARDS BASE */
+    /* 2. SELECTION CARDS - HIGH END UI */
     .selection-card, .selection-card-mini {
-        @apply bg-white border border-slate-100 rounded-3xl p-4 flex items-center gap-4 cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10 hover:border-cyan-200;
+        background: white;
+        border: 1px solid #f1f5f9;
+        border-radius: 2.5rem;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
     }
 
-    /* PREMIUM STATE - Especificidad Máxima */
+    .selection-card:hover, .selection-card-mini:hover {
+        border-color: #06b6d4;
+        box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.15);
+        transform: translateY(-4px);
+    }
+
+    /* PREMIUM STATE - THE GLOW EFFECT */
     #booking-app .selection-card.selected, 
     #booking-app .selection-card-mini.selected {
         background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%) !important;
         border-color: transparent !important;
-        transform: scale(1.02);
-        box-shadow: 0 20px 40px -10px rgba(8, 145, 178, 0.5) !important;
-        z-index: 10;
+        box-shadow: 0 25px 50px -12px rgba(8, 145, 178, 0.4) !important;
+        transform: scale(1.02) translateY(-4px);
     }
     
     #booking-app .selected h4, 
     #booking-app .selected p, 
-    #booking-app .selected span {
+    #booking-app .selected span:not(.material-symbols-outlined) {
         color: white !important;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
 
     #booking-app .selected .bg-slate-50,
-    #booking-app .selected .bg-cyan-50,
-    #booking-app .selected .bg-white {
-        background-color: rgba(255, 255, 255, 0.2) !important;
+    #booking-app .selected .bg-cyan-50 {
+        background-color: rgba(255, 255, 255, 0.15) !important;
         color: white !important;
     }
 
     #booking-app .selected .material-symbols-outlined {
         color: white !important;
+        background: rgba(255, 255, 255, 0.2);
     }
 
-    /* 3. NAVIGATION & UI */
-    .step-nav-item { @apply flex flex-col items-center gap-1 text-slate-400 hover:text-cyan-500 cursor-pointer transition-all; }
-    .step-nav-item.active { @apply text-cyan-600; }
-    .step-nav-item.active span:first-child { @apply scale-110; }
+    /* 3. SIDEBAR DASHBOARD STYLE */
+    .summary-sidebar {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 3.5rem;
+        padding: 2.5rem;
+        box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.05);
+    }
 
-    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .summary-item.completed {
+        opacity: 1 !important;
+    }
+
+    .summary-item.completed .material-symbols-outlined {
+        color: #0891b2 !important;
+        background: #ecfeff !important;
+    }
+
+    /* 4. BUTTONS & UI */
+    .btn-step-next {
+        background: #0f172a;
+        color: white;
+        padding: 1.5rem 2rem;
+        border-radius: 2rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.75rem;
+        transition: all 0.4s;
+        box-shadow: 0 15px 30px -5px rgba(15, 23, 42, 0.2);
+    }
+
+    .btn-step-next:hover {
+        background: #0891b2;
+        transform: translateY(-2px);
+        box-shadow: 0 20px 40px -10px rgba(8, 145, 178, 0.3);
+    }
+
+    /* 5. CUSTOM SCROLLBAR */
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
 </style>
 
 <main id="booking-app" class="bg-slate-50 min-h-screen pb-32 overflow-visible">
@@ -69,9 +120,9 @@
         <div class="grid grid-cols-12 gap-8 items-start h-auto">
             
             <!-- LEFT SIDEBAR: Current Selections -->
-            <aside class="col-span-12 lg:col-span-3 bg-white/40 backdrop-blur-2xl rounded-[3rem] p-8 border border-white/50 h-fit shadow-xl shadow-slate-200/20 flex flex-col sticky top-[140px] z-10">
+            <aside class="col-span-12 lg:col-span-3 summary-sidebar sticky top-[140px] z-10">
                 <div class="mb-10">
-                    <span class="text-[9px] font-black tracking-[0.3em] text-cyan-600 uppercase opacity-70">Booking Journey</span>
+                    <span class="text-[9px] font-black tracking-[0.3em] text-cyan-600 uppercase opacity-70">Experiencia Digital</span>
                     <h2 class="text-2xl font-light text-slate-800 mt-2">Tu <span class="font-bold">Cita</span></h2>
                 </div>
 
@@ -128,9 +179,9 @@
                 
                 <!-- STEP 1: Study Selection -->
                 <div id="step-1" class="booking-step active-step flex flex-col h-full overflow-hidden">
-                    <div class="mb-6 flex-shrink-0">
+                    <div class="mb-8 flex-shrink-0">
                         <h3 class="text-3xl font-light text-slate-900 mb-1">Selección <span class="font-bold">Clínica</span></h3>
-                        <p class="text-slate-400 text-[10px] tracking-widest uppercase font-black">Paso 1: Elige tus servicios</p>
+                        <p class="text-slate-400 text-[10px] tracking-[0.2em] uppercase font-black">Módulo 01: Servicios Digitales</p>
                     </div>
 
                     <!-- 1.1 Estudios Populares (SIEMPRE VISIBLES) -->
@@ -488,8 +539,8 @@
                     </div>
                 </div>
 
-                <button id="main-action-btn" onclick="nextStep()" class="w-full bg-slate-900 text-white py-5 rounded-3xl font-bold text-[10px] tracking-widest uppercase hover:bg-cyan-600 transition-all flex items-center justify-center gap-3 shadow-xl shadow-slate-200">
-                    Siguiente Paso
+                <button id="main-action-btn" onclick="nextStep()" class="w-full btn-step-next flex items-center justify-center gap-3">
+                    Continuar Reservación
                     <span class="material-symbols-outlined text-lg">arrow_forward</span>
                 </button>
             </aside>
@@ -782,10 +833,10 @@
         const btn = document.getElementById('main-action-btn');
         if (!btn) return;
         if (bookingState.currentStep === 4) {
-            btn.innerHTML = `Confirmar y Finalizar <span class="material-symbols-outlined">check_circle</span>`;
+            btn.innerHTML = `Agendar Cita Ahora <span class="material-symbols-outlined">check_circle</span>`;
             btn.classList.add('bg-cyan-600');
         } else {
-            btn.innerHTML = `Siguiente Paso <span class="material-symbols-outlined">arrow_forward</span>`;
+            btn.innerHTML = `Continuar Reservación <span class="material-symbols-outlined">arrow_forward</span>`;
             btn.classList.remove('bg-cyan-600');
         }
     }
