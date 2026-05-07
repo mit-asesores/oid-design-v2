@@ -1986,43 +1986,49 @@ body.not-home main {
     z-index: 10;
     box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 }
-\n/* CTA Styles for CRO Optimization */
+
+/* CTA Styles for CRO Optimization */
 .btn-editorial-cta {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: transparent;
-    border: 1px solid #0891b2; /* Cyan-600 */
-    color: #0891b2;
-    border-radius: 9999px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-block !important;
+    padding: 1rem 2.5rem !important;
+    background: transparent !important;
+    border: 1px solid #0891b2 !important;
+    color: #0891b2 !important;
+    border-radius: 9999px !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin-top: 1rem;
 }
 
 .btn-editorial-cta:hover {
-    background: #0891b2;
-    color: #ffffff;
-    box-shadow: 0 15px 30px rgba(8, 145, 178, 0.2);
-    transform: translateY(-3px);
+    background: #0891b2 !important;
+    color: #ffffff !important;
+    box-shadow: 0 15px 30px rgba(8, 145, 178, 0.2) !important;
+    transform: translateY(-3px) !important;
 }
 
 .btn-primary-cinematic {
-    background: #0891b2;
-    color: #ffffff;
-    padding: 1.25rem 3rem;
-    border-radius: 1.5rem;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    box-shadow: 0 20px 40px rgba(8, 145, 178, 0.3);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex !important;
+    align-items: center !important;
+    background: #0891b2 !important;
+    color: #ffffff !important;
+    padding: 1.25rem 3rem !important;
+    border-radius: 1.5rem !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    box-shadow: 0 20px 40px rgba(8, 145, 178, 0.3) !important;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .btn-primary-cinematic:hover {
-    background: #0e7490; /* Cyan-700 */
-    transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 30px 60px rgba(8, 145, 178, 0.4);
+    background: #0e7490 !important;
+    transform: scale(1.05) translateY(-5px) !important;
+    box-shadow: 0 30px 60px rgba(8, 145, 178, 0.4) !important;
 }\n

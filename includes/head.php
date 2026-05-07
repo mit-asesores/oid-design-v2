@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title><?php echo isset($page_title) ? $page_title : 'OrthoImagenDigital | Diagnóstico Dental de Alta Precisión y Baja Radiación'; ?></title>
+    <?php 
+        $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http");
+        $full_url = $protocol . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $canonical_url = isset($custom_canonical) ? $custom_canonical : explode('?', $full_url)[0];
+    ?>
+    <title><?php echo isset($page_title) ? $page_title : 'OrthoImagenDigital | Diagnóstico Dental de Alta Precisión'; ?></title>
     
     <!-- AI-SEO & Semantic Metadata -->
-    <meta name="description" content="<?php echo isset($page_description) ? $page_description : 'Líder en radiología dental en México con tecnología Planmeca Ultra Low Dose. Diagnósticos 3D HD, tomografías y radiografías con la mínima radiación. Alianza estratégica con la Cruz Roja Mexicana.'; ?>">
+    <meta name="description" content="<?php echo isset($page_description) ? $page_description : 'Líder en radiología dental en México con tecnología Planmeca Ultra Low Dose. Diagnósticos 3D HD, tomografías y radiografías con la mínima radiación.'; ?>">
     <meta name="keywords" content="radiología dental méxico, tomografía dental 3d, radiografía panorámica digital, planmeca ultra low dose, diagnóstico maxilofacial precisión">
-    <link rel="canonical" href="https://orthoimagendigital.com/" />
+    <link rel="canonical" href="<?php echo $canonical_url; ?>" />
     
     <!-- Open Graph / AI Search Resumes -->
-    <meta property="og:title" content="OrthoImagenDigital: Claridad Clínica con Seguridad Total">
-    <meta property="og:description" content="Descubre el diagnóstico dental del futuro. Imágenes HD, entrega digital inmediata por OrthoCloud y el respaldo de la Cruz Roja Mexicana.">
+    <meta property="og:title" content="<?php echo isset($page_title) ? $page_title : 'OrthoImagenDigital: Claridad Clínica con Seguridad Total'; ?>">
+    <meta property="og:description" content="<?php echo isset($page_description) ? $page_description : 'Descubre el diagnóstico dental del futuro. Imágenes HD, entrega digital inmediata por OrthoCloud.'; ?>">
     <meta property="og:image" content="img/screen.png">
     <meta property="og:url" content="https://orthoimagendigital.com/">
     <meta property="og:type" content="website">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css?v=<?php echo time(); ?>">
     
     <!-- Google Fonts & Icons (Restoring original weights and Fill axis) -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
