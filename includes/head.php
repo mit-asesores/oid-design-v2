@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>OrthoImagenDigital | Diagnóstico Dental de Alta Precisión y Baja Radiación</title>
+    <title><?php echo isset($page_title) ? $page_title : 'OrthoImagenDigital | Diagnóstico Dental de Alta Precisión y Baja Radiación'; ?></title>
     
     <!-- AI-SEO & Semantic Metadata -->
-    <meta name="description" content="Líder en radiología dental en México con tecnología Planmeca Ultra Low Dose. Diagnósticos 3D HD, tomografías y radiografías con la mínima radiación. Alianza estratégica con la Cruz Roja Mexicana.">
+    <meta name="description" content="<?php echo isset($page_description) ? $page_description : 'Líder en radiología dental en México con tecnología Planmeca Ultra Low Dose. Diagnósticos 3D HD, tomografías y radiografías con la mínima radiación. Alianza estratégica con la Cruz Roja Mexicana.'; ?>">
     <meta name="keywords" content="radiología dental méxico, tomografía dental 3d, radiografía panorámica digital, planmeca ultra low dose, diagnóstico maxilofacial precisión">
     <link rel="canonical" href="https://orthoimagendigital.com/" />
     

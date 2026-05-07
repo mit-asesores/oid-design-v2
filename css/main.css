@@ -1704,3 +1704,325 @@ body.not-home main {
 
 
 
+
+/* --- CAP�TULO 1: EQUIPAMIENTO CIN�TICO --- */
+.equipment-showcase {
+    background: radial-gradient(circle at top right, #f8fafc 0%, #ffffff 100%);
+    overflow: hidden;
+}
+
+.kinetic-frame {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 4/5;
+    background: #f1f5f9;
+    border-radius: 3rem;
+    overflow: hidden;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.equipment-main-img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    z-index: 2;
+    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.1));
+}
+
+.equipment-ghost-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0.1;
+    filter: blur(20px) brightness(1.2);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+.tech-scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #06b6d4, transparent);
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.kinetic-frame:hover .tech-scan-line {
+    opacity: 0.6;
+    animation: scanVertical 3s infinite linear;
+}
+
+@keyframes scanVertical {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+.tech-data-tag {
+    position: absolute;
+    padding: 0.75rem 1.25rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+/* --- INTENSIFICACI�N KINETIC (Ajuste CAP 1) --- */
+.equipment-ghost-layer {
+    opacity: 0.4 !important; /* M�s visible */
+    filter: blur(12px) brightness(1.2) saturate(1.8) !important; 
+    mix-blend-mode: multiply !important;
+}
+
+.main-layer {
+    filter: drop-shadow(0 30px 60px rgba(0, 104, 118, 0.15)) !important;
+}
+
+
+/* --- CAP�TULO 1: EFECTO ENSAMBLAJE (Estilo Automotive) --- */
+.reveal-side-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: none;
+}
+
+.reveal-side-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: none;
+}
+
+.reveal-mask {
+    clip-path: inset(100% 0 0 0); /* Oculto desde abajo */
+}
+
+.tech-data-tag {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+
+/* --- CAP�TULO 1: REFINAMIENTO �PTICO --- */
+.lens-focus-initial {
+    filter: blur(15px) brightness(0.8);
+    transform: scale(1.1) translateX(-100px); /* Para la izquierda */
+}
+
+.reveal-side-right.lens-focus-initial {
+    transform: scale(1.1) translateX(100px); /* Para la derecha */
+}
+
+/* Efecto de Brillo (Gloss Sweep) */
+.kinetic-frame::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -150%;
+    width: 50%; height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.kinetic-frame.gloss-active::after {
+    left: 150%;
+    transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Contenedor para el Tilt 3D */
+.magnetic-wrap {
+    perspective: 1000px;
+    transition: transform 0.1s ease-out;
+}
+
+
+/* --- CAP�TULO 1: MINIMAL PREMIUM CATALOG --- */
+.premium-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.premium-line-guide {
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 2px;
+    height: 0;
+    background: #06b6d4; /* Cian */
+    transition: height 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.equipment-item.is-visible .premium-line-guide {
+    height: 100%;
+}
+
+.equipment-main-img {
+    filter: none !important; /* Limpiamos desenfoques */
+    box-shadow: 0 50px 100px -20px rgba(0,0,0,0.1); /* Sombra elegante y suave */
+}
+
+
+/* Variante para lnea gua derecha */
+.premium-line-guide.line-right {
+    left: auto;
+    right: -40px; /* Separacin simtrica */
+}
+
+
+/* tem 4: Inmersin IA */
+.equipment-item-full {
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.ia-bg-visual {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 65vw;
+    height: 100%;
+    z-index: 0;
+    clip-path: inset(0 0 0 100%); /* Estado inicial: cerrado */
+    transition: clip-path 1.8s cubic-bezier(0.19, 1, 0.22, 1); will-change: clip-path;
+}
+
+.equipment-item-full.is-visible .ia-bg-visual {
+    clip-path: inset(0 0 0 0); /* Estado final: abierto */
+}
+
+.ia-visual-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
+    transition: transform 10s linear;
+}
+
+.equipment-item-full.is-visible .ia-visual-img {
+    transform: scale(1); /* Efecto de zoom lento */
+}
+
+.ia-gradient-mask {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0) 100%);
+    z-index: 1;
+}
+
+
+/* Refinamiento Propuesta A: Studio Gallery */
+.studio-gallery-container {
+    background: #f8fafc; /* Slate-50 for distinct frame contrast */
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    position: relative;
+    box-shadow: 0 50px 100px -20px rgba(0,0,0,0.03), 0 30px 60px -30px rgba(0,0,0,0.05);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studio-gallery-container:hover {
+    background: #ffffff;
+    box-shadow: 0 70px 120px -20px rgba(0,0,0,0.06), 0 40px 80px -30px rgba(0,0,0,0.1);
+}
+
+.studio-backdrop-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.studio-img-wrap {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255,255,255,0.5); /* Subtle inner matting */
+    border-radius: 3rem;
+}
+
+.equipment-item:hover .studio-img-wrap {
+    transform: scale(1.02); /* More subtle scale to preserve frame air */
+}
+
+.studio-tech-tag {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.85rem 1.75rem;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    color: #475569;
+    z-index: 10;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+\n/* CTA Styles for CRO Optimization */
+.btn-editorial-cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    border: 1px solid #0891b2; /* Cyan-600 */
+    color: #0891b2;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-editorial-cta:hover {
+    background: #0891b2;
+    color: #ffffff;
+    box-shadow: 0 15px 30px rgba(8, 145, 178, 0.2);
+    transform: translateY(-3px);
+}
+
+.btn-primary-cinematic {
+    background: #0891b2;
+    color: #ffffff;
+    padding: 1.25rem 3rem;
+    border-radius: 1.5rem;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 20px 40px rgba(8, 145, 178, 0.3);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary-cinematic:hover {
+    background: #0e7490; /* Cyan-700 */
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 30px 60px rgba(8, 145, 178, 0.4);
+}\n

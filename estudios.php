@@ -14,7 +14,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-white/20 via-slate-50/40 to-slate-50"></div>
         </div>
         
-        <div class="relative z-10 text-center px-6 mt-20">
+        <div class="relative z-10 text-center px-6 pt-32">
             <div class="hero-badge-status">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
                 <span class="text-[9px] font-bold tracking-[0.3em] text-slate-500 uppercase">Tecnología de Diagnóstico Avanzado</span>
@@ -219,102 +219,222 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: Showcase Tecnológico (Inmersivo) -->
-    <section class="py-40 bg-white relative overflow-hidden">
-        
-        <!-- Capas de Profundidad Atmosférica (Auras) -->
-        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] -z-10 layer-depth-back" data-depth="0.1"></div>
-        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] -z-10 layer-depth-back" data-depth="0.05"></div>
+    <!-- COMPARATIVA DE ESTILOS: PROPUESTA A VS PROPUESTA B -->
+    
+    <!-- PROPUESTA A: DISEÑO EDITORIAL MINIMALISTA -->
+    <section class="py-32 bg-white relative overflow-hidden border-b border-slate-100">
+        <div class="container mx-auto px-6 mb-24">
+            <span class="text-cyan-600 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">OPCIÓN DE DISEÑO 01</span>
+            <h2 class="text-5xl font-black text-slate-900 mb-4">Propuesta A: <span class="text-slate-300 font-light italic">Minimalismo Editorial</span></h2>
+            <p class="text-slate-400 font-light max-w-2xl">Enfoque limpio y equilibrado, ideal para una lectura técnica y profesional con acentos cinéticos sutiles.</p>
+        </div>
 
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-20">
-                <span class="section-label">EQUIPAMIENTO DE ÉLITE</span>
-                <h2 class="section-title-premium">Tecnología que <br/><span class="font-bold text-cyan-600 italic">Redefine la Precisión.</span></h2>
-            </div>
-            
-            <!-- Item 1: CBCT -->
-            <div class="equipment-row-grid equipment-item">
-
-                <div class="relative group w-fit">
-                    <div class="equipment-frame">
-                        <img src="img/cbct_3d.png" class="w-full h-full object-cover equipment-img" alt="CBCT Tomografía 3D">
-                    </div>
-                    <!-- Callout Flotante (Estilo Nosotros) -->
-                    <div class="absolute top-10 -right-12 z-20 callout-glass max-w-[210px] hidden md:block equipment-callout" data-depth="0.2">
-                        <div class="callout-badge">
-                            <span class="material-symbols-outlined">check</span>
+            <div class="space-y-40">
+                <!-- Item 1: Pax-i3D Smart (A - Studio Gallery) -->
+                <div class="flex flex-col lg:flex-row items-center gap-16 equipment-item py-12 relative">
+                    <div class="premium-line-guide"></div>
+                    <div class="lg:w-7/12 relative group">
+                        <div class="studio-gallery-container rounded-[4rem] p-12 relative overflow-hidden premium-reveal">
+                            <div class="studio-backdrop-aura"></div>
+                            <div class="studio-img-wrap relative z-10">
+                                <img src="img/cbct_3d.png" class="w-full h-auto rounded-[3rem] shadow-2xl mx-auto" alt="Pax-i3D Tomografía 3D">
+                            </div>
+                            <div class="studio-tech-tag uppercase">CERTIFICACIÓN VATECH GLOBAL</div>
                         </div>
-                        <span class="text-cyan-600 font-black text-[9px] tracking-[0.25em] block mb-1 uppercase">PRECISIÓN 3D</span>
-                        <p class="text-slate-600 text-[12px] leading-tight font-medium">Reconstrucción volumétrica HD en menos de 20 segundos.</p>
                     </div>
-                </div>
-                <div class="equipment-text layer-depth-front" data-depth="0.15">
-                    <span class="text-cyan-500 font-black text-[10px] tracking-[0.3em] uppercase mb-4 block">SISTEMA CBCT VATECH</span>
-                    <h3 class="text-4xl font-bold text-slate-900 mb-6">Pax-i3D Smart</h3>
-                    <p class="equipment-description">El estándar de oro en radiología digital. Permite a tu doctor ver estructuras óseas y nerviosas con una claridad absoluta, garantizando tratamientos más seguros.</p>
-                    <div class="flex gap-4">
-                        <div class="equipment-tag-pill">MÍNIMA RADIACIÓN</div>
-                        <div class="equipment-tag-pill">SENSOR HD</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 2: Escáner (Invertido) -->
-            <div class="equipment-row-grid equipment-item">
-
-                <div class="order-2 lg:order-1 equipment-text layer-depth-front" data-depth="0.15">
-                    <span class="text-cyan-500 font-black text-[10px] tracking-[0.3em] uppercase mb-4 block">DIGITALIZACIÓN INTRAORAL</span>
-                    <h3 class="text-4xl font-bold text-slate-900 mb-6">Escaneo Digital 3D</h3>
-                    <p class="equipment-description">Digitalizamos tu sonrisa en minutos. Eliminamos los moldes tradicionales de pasta por un escaneo láser ultra preciso, cómodo y en tiempo real.</p>
-                    <div class="flex gap-4">
-                        <div class="equipment-tag-pill">SIN MOLDES</div>
-                        <div class="equipment-tag-pill">COLOR REAL</div>
-                    </div>
-                </div>
-                <div class="relative group w-fit lg:ml-auto order-1 lg:order-2">
-                    <div class="equipment-frame">
-                        <img src="img/scanner_3d.png" class="w-full h-full object-cover equipment-img" alt="Escáner Intraoral">
-                    </div>
-                    <!-- Callout Flotante (Estilo Nosotros) -->
-                    <div class="absolute bottom-10 -left-12 z-20 callout-glass max-w-[210px] hidden md:block equipment-callout" data-depth="0.2">
-                        <div class="callout-badge">
-                            <span class="material-symbols-outlined">check</span>
+                    <div class="lg:w-5/12 equipment-text">
+                        <span class="section-label premium-reveal tracking-[0.3em]">EXCELENCIA RADIOLÓGICA</span>
+                        <h3 class="text-5xl font-black text-slate-900 mb-6 premium-reveal leading-tight">Pax-i3D <br><span class="text-cyan-600">Smart</span></h3>
+                        <p class="text-slate-500 font-light text-lg leading-relaxed mb-8 premium-reveal">
+                            Representamos la vanguardia en precisión diagnóstica. El Pax-i3D Smart redefine la seguridad clínica, permitiendo visualizar estructuras con una nitidez absoluta.
+                        </p>
+                        <div class="flex flex-wrap gap-4 mb-10 premium-reveal">
+                            <div class="px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold tracking-widest text-slate-400 uppercase">MÍNIMA RADIACIÓN</div>
+                            <div class="px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold tracking-widest text-slate-400 uppercase">ALTA DEFINICIÓN</div>
                         </div>
-                        <span class="text-cyan-600 font-black text-[9px] tracking-[0.25em] block mb-1 uppercase">INNOVACIÓN</span>
-                        <p class="text-slate-600 text-[12px] leading-tight font-medium">Tecnología de vanguardia para escaneo láser ultra-veloz.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 3: Panorámico -->
-            <div class="equipment-row-grid equipment-item">
-
-                <div class="relative group w-fit">
-                    <div class="equipment-frame">
-                        <img src="img/panoramico_hd.png" class="w-full h-full object-cover equipment-img" alt="Panorámico Digital HD">
-                    </div>
-                    <!-- Callout Flotante (Estilo Nosotros) -->
-                    <div class="absolute top-1/2 -translate-y-1/2 -right-12 z-20 callout-glass max-w-[210px] hidden md:block equipment-callout" data-depth="0.2">
-                        <div class="callout-badge">
-                            <span class="material-symbols-outlined">check</span>
+                        <div class="premium-reveal">
+                            <a href="citas.php" class="btn-editorial-cta">Agendar este estudio</a>
                         </div>
-                        <span class="text-cyan-600 font-black text-[9px] tracking-[0.25em] block mb-1 uppercase">DIAGNÓSTICO HD</span>
-                        <p class="text-slate-600 text-[12px] leading-tight font-medium">Imagen completa de la anatomía dental en una sola toma.</p>
                     </div>
                 </div>
-                <div class="equipment-text layer-depth-front" data-depth="0.15">
-                    <span class="text-cyan-500 font-black text-[10px] tracking-[0.3em] uppercase mb-4 block">IMAGEN PANORÁMICA</span>
-                    <h3 class="text-4xl font-bold text-slate-900 mb-6">Radiología HD Digital</h3>
-                    <p class="equipment-description">Capturamos toda tu anatomía dental en una sola imagen de alta definición. Ideal para una evaluación general rápida con total seguridad biológica.</p>
-                    <div class="flex gap-4">
-                        <div class="equipment-tag-pill">PANORÁMICA HD</div>
-                        <div class="equipment-tag-pill">BAJO MILIREMS</div>
+
+                <!-- Item 2: Escaneo Digital 3D (A - Studio Gallery) -->
+                <div class="flex flex-col lg:flex-row items-center gap-16 equipment-item py-12 relative">
+                    <div class="premium-line-guide line-right"></div>
+                    <div class="lg:w-5/12 order-2 lg:order-1 equipment-text lg:text-right">
+                        <span class="section-label premium-reveal tracking-[0.3em]">FLUJO DIGITAL</span>
+                        <h3 class="text-5xl font-black text-slate-900 mb-6 premium-reveal leading-tight">Escaneo <br><span class="text-cyan-600">Digital 3D</span></h3>
+                        <p class="text-slate-500 font-light text-lg leading-relaxed mb-8 premium-reveal">
+                            Sustituimos las pastas tradicionales por un escaneo láser de ultra precisión que captura cada detalle en tiempo real.
+                        </p>
+                        <div class="flex flex-wrap gap-4 mb-10 premium-reveal lg:justify-end">
+                            <div class="px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold tracking-widest text-slate-400 uppercase">SIN MOLDES</div>
+                            <div class="px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold tracking-widest text-slate-400 uppercase">COLOR REAL</div>
+                        </div>
+                        <div class="premium-reveal">
+                            <a href="citas.php" class="btn-editorial-cta">Agendar este estudio</a>
+                        </div>
+                    </div>
+                    <div class="lg:w-7/12 relative order-1 lg:order-2 group">
+                        <div class="studio-gallery-container rounded-[4rem] p-12 relative overflow-hidden premium-reveal">
+                            <div class="studio-backdrop-aura"></div>
+                            <div class="studio-img-wrap relative z-10">
+                                <img src="img/scanner_3d.png" class="w-full h-auto rounded-[3rem] shadow-2xl mx-auto" alt="Escaneo Intraoral">
+                            </div>
+                            <div class="studio-tech-tag uppercase">PRECISIÓN MICRÓNICA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3: Radiología HD (A - Studio Gallery) -->
+                <div class="flex flex-col lg:flex-row items-center gap-16 equipment-item py-12 relative">
+                    <div class="premium-line-guide"></div>
+                    <div class="lg:w-7/12 relative group">
+                        <div class="studio-gallery-container rounded-[4rem] p-12 relative overflow-hidden premium-reveal">
+                            <div class="studio-backdrop-aura"></div>
+                            <div class="studio-img-wrap relative z-10">
+                                <img src="img/panoramico_hd.png" class="w-full h-auto rounded-[3rem] shadow-2xl mx-auto" alt="Radiología Panorámica">
+                            </div>
+                            <div class="studio-tech-tag uppercase">SISTEMA HD INTEGRADO</div>
+                        </div>
+                    </div>
+                    <div class="lg:w-5/12 equipment-text">
+                        <span class="section-label premium-reveal tracking-[0.3em]">VISIÓN INTEGRAL</span>
+                        <h3 class="text-5xl font-black text-slate-900 mb-6 premium-reveal leading-tight">Radiología <br><span class="text-cyan-600">HD Digital</span></h3>
+                        <p class="text-slate-500 font-light text-lg leading-relaxed mb-8 premium-reveal">
+                            Obtenemos una perspectiva completa de tu anatomía dental en segundos con tecnología HD de baja dosis.
+                        </p>
+                        <div class="flex flex-wrap gap-4 mb-10 premium-reveal">
+                            <div class="px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold tracking-widest text-slate-400 uppercase">PANORÁMICA HD</div>
+                            <div class="px-5 py-2 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold tracking-widest text-slate-400 uppercase">BAJA RADIACIÓN</div>
+                        </div>
+                        <div class="premium-reveal">
+                            <a href="citas.php" class="btn-editorial-cta">Agendar este estudio</a>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
+
+    <!-- PROPUESTA B: INMERSIÓN CINEMATOGRÁFICA -->
+    <section class="py-32 bg-white relative overflow-hidden" style="z-index: 1;">
+        <div class="container mx-auto px-6 mb-24">
+            <span class="text-cyan-600 font-bold tracking-[0.4em] text-[10px] uppercase mb-4 block">OPCIÓN DE DISEÑO 02</span>
+            <h2 class="text-5xl font-black text-slate-900 mb-4">Propuesta B: <span class="text-cyan-600">Inmersión Cinemática</span></h2>
+            <p class="text-slate-500 font-light max-w-2xl">Experiencia envolvente de alto impacto. Diseño de vanguardia que posiciona a la clínica como un referente tecnológico absoluto.</p>
+        </div>
+
+        <div class="space-y-0">
+            <!-- Item 1: Pax-i3D Smart (B - FORZADO IZQUIERDA) -->
+            <div class="equipment-item-full equipment-item py-40 relative bg-white border-b border-slate-50">
+                <div class="ia-bg-visual" style="left: 0; right: auto; width: 60vw;">
+                    <img src="img/cbct_3d.png" class="ia-visual-img" alt="Pax-i3D Precision" style="object-position: left center;">
+                    <div class="ia-gradient-mask" style="background: linear-gradient(to left, #fff 0%, #fff 20%, rgba(255,255,255,0.8) 40%, transparent 100%);"></div>
+                </div>
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="ml-auto max-w-xl text-right">
+                        <span class="section-label premium-reveal tracking-[0.3em]">CONVERGENCIA BIO-DIGITAL</span>
+                        <h3 class="text-5xl font-extrabold text-slate-900 mb-6 premium-reveal">Pax-i3D <br><span class="text-cyan-600">Smart Precision</span></h3>
+                        <p class="text-slate-600 font-light text-xl leading-relaxed mb-10 premium-reveal">
+                            La cima de la seguridad diagnóstica. Capturamos volúmenes óseos con una claridad sin precedentes, garantizando cirugías predecibles.
+                        </p>
+                        <div class="flex gap-4 premium-reveal justify-end mb-8">
+                            <div class="px-6 py-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full text-[10px] font-bold tracking-widest text-slate-500 uppercase shadow-sm">ULTRA LOW DOSE</div>
+                        </div>
+                        <div class="premium-reveal">
+                            <a href="citas.php" class="btn-primary-cinematic inline-flex items-center gap-3">
+                                Agendar este estudio
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Escaneo Digital 3D (B - DERECHA) -->
+            <div class="equipment-item-full equipment-item py-40 relative bg-white border-b border-slate-50">
+                <div class="ia-bg-visual" style="right: 0; left: auto; width: 60vw;">
+                    <img src="img/scanner_3d.png" class="ia-visual-img" alt="Digital Workflow">
+                    <div class="ia-gradient-mask" style="background: linear-gradient(to right, #fff 0%, #fff 20%, rgba(255,255,255,0.8) 40%, transparent 100%);"></div>
+                </div>
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-xl">
+                        <span class="section-label premium-reveal tracking-[0.3em]">PRECISIÓN MICRÓNICA</span>
+                        <h3 class="text-5xl font-extrabold text-slate-900 mb-6 premium-reveal">Escaneo <br><span class="text-cyan-600">Intraoral 3D</span></h3>
+                        <p class="text-slate-600 font-light text-xl leading-relaxed mb-10 premium-reveal">
+                            Digitalizamos tu sonrisa en segundos con una precisión que permite tratamientos 100% personalizados.
+                        </p>
+                        <div class="flex gap-4 premium-reveal mb-8">
+                            <div class="px-6 py-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full text-[10px] font-bold tracking-widest text-slate-500 uppercase shadow-sm">DIGITAL WORKFLOW</div>
+                        </div>
+                        <div class="premium-reveal">
+                            <a href="citas.php" class="btn-primary-cinematic inline-flex items-center gap-3">
+                                Agendar este estudio
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Radiología HD (B - FORZADO IZQUIERDA) -->
+            <div class="equipment-item-full equipment-item py-40 relative bg-white border-b border-slate-50">
+                <div class="ia-bg-visual" style="left: 0; right: auto; width: 60vw;">
+                    <img src="img/panoramico_hd.png" class="ia-visual-img" alt="Radiología Panorámica" style="object-position: left center;">
+                    <div class="ia-gradient-mask" style="background: linear-gradient(to left, #fff 0%, #fff 20%, rgba(255,255,255,0.8) 40%, transparent 100%);"></div>
+                </div>
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="ml-auto max-w-xl text-right">
+                        <span class="section-label premium-reveal tracking-[0.3em]">VISIÓN INTEGRAL HD</span>
+                        <h3 class="text-5xl font-extrabold text-slate-900 mb-6 premium-reveal">Radiología <br><span class="text-cyan-600">Panorámica</span></h3>
+                        <p class="text-slate-600 font-light text-xl leading-relaxed mb-10 premium-reveal">
+                            Perspectiva completa en milisegundos. Resolución de alta definición para una evaluación diagnóstica superior.
+                        </p>
+                        <div class="flex gap-4 premium-reveal justify-end mb-8">
+                            <div class="px-6 py-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full text-[10px] font-bold tracking-widest text-slate-500 uppercase shadow-sm">HD RESOLUTION</div>
+                        </div>
+                        <div class="premium-reveal">
+                            <a href="citas.php" class="btn-primary-cinematic inline-flex items-center gap-3">
+                                Agendar este estudio
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4: Inteligencia IA (B - DERECHA) -->
+            <div class="equipment-item-full equipment-item py-40 relative bg-white">
+                <div class="ia-bg-visual" style="right: 0; left: auto; width: 60vw;">
+                    <img src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?q=80&w=2070" class="ia-visual-img" alt="IA Intelligence">
+                    <div class="ia-gradient-mask" style="background: linear-gradient(to right, #fff 0%, #fff 20%, rgba(255,255,255,0.8) 40%, transparent 100%);"></div>
+                </div>
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-xl">
+                        <span class="section-label premium-reveal tracking-[0.3em]">INTELIGENCIA PREDICTIVA</span>
+                        <h3 class="text-5xl font-extrabold text-slate-900 mb-6 premium-reveal">Diagnóstico <br><span class="text-cyan-600">con IA</span></h3>
+                        <p class="text-slate-600 font-light text-xl leading-relaxed mb-10 premium-reveal">
+                            Analizamos patrones microscópicos invisibles al ojo humano, detectando anomalías antes de que sean visibles.
+                        </p>
+                        <div class="flex gap-4 premium-reveal mb-8">
+                            <div class="px-6 py-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full text-[10px] font-bold tracking-widest text-slate-500 uppercase shadow-sm">IA ANALYSIS</div>
+                        </div>
+                        <div class="premium-reveal">
+                            <a href="citas.php" class="btn-primary-cinematic inline-flex items-center gap-3">
+                                Agendar este estudio
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: CONFIANZA Y AUTORIDAD (E-E-A-T) -->
+    <?php include_once 'includes/trust-section.php'; ?>
 
     <!-- SECCIÓN 5: El Portal Digital (Con Efecto de Máscara Circular) -->
     <div class="portal-reveal-trigger bg-white">
@@ -359,7 +479,39 @@
             }
         });
 
-        // 2. Parallax de Capas Atmosférico (Efecto 7)
+        // 2. Animaciones de la Sección de Confianza (Trust Section)
+        gsap.from(".trust-reveal-left", {
+            x: -50,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".trust-reveal-left",
+                start: "top 85%"
+            }
+        });
+
+        gsap.from(".trust-reveal-right", {
+            x: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".trust-reveal-right",
+                start: "top 85%"
+            }
+        });
+
+        gsap.to(".visual-anchor", {
+            y: -30,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        // 3. Parallax de Capas Atmosférico (Efecto 7)
         const layers = document.querySelectorAll('[data-depth]');
         layers.forEach(layer => {
             const depth = layer.getAttribute('data-depth');
@@ -500,6 +652,26 @@
                 end: "bottom top",
                 scrub: true
             }
+        });
+
+        // --- LOGICA CAPÍTULO 1: MINIMAL PREMIUM REVEAL ---
+        gsap.utils.toArray('.equipment-item').forEach(item => {
+            const reveals = item.querySelectorAll('.premium-reveal');
+
+            gsap.from(reveals, {
+                y: 60,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.15,
+                ease: "power3.out",
+                clearProps: "all", 
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 85%",
+                    onEnter: () => item.classList.add('is-visible'),
+                    toggleActions: "play none none reverse"
+                }
+            });
         });
     });
 </script>
