@@ -5,18 +5,33 @@ include_once 'includes/head.php';
 ?>
 <?php include_once 'includes/header.php'; ?>
 
+<!-- SEO & AEO: SCHEMA MARKUP (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "OrthoImagenDigital",
+  "description": "Centro de radiología e imagen digital dental de alta gama en CDMX.",
+  "url": "https://orthoimagendigital.com/citas.php",
+  "medicalSpecialty": "Radiology",
+  "offers": {
+    "@type": "AggregateOffer",
+    "offerCount": "17",
+    "priceCurrency": "MXN"
+  }
+}
+</script>
+
 <style>
     /* 1. LAYOUT & CORE - ORTHO-PREMIUM DESIGN SYSTEM */
     nav#main-header { z-index: 1000 !important; background: rgba(255, 255, 255, 0.8) !important; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); }
     main#booking-app { padding-top: 160px !important; background: radial-gradient(circle at top right, #f8fafc, #f1f5f9); }
     
     .booking-step {
-        background: white;
-        border-radius: 4rem;
-        padding: 3rem;
-        box-shadow: 0 50px 100px -20px rgba(15, 23, 42, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        /* Contenedor estructural (se eliminaron los fondos, bordes y paddings redundantes) */
+        width: 100%;
+        height: 100%;
+        transition: all 0.9s cubic-bezier(0.34, 1.56, 0.64, 1); /* CINE-EASING */
     }
 
     /* 2. SELECTION CARDS - HIGH END UI */
@@ -24,20 +39,38 @@ include_once 'includes/head.php';
         background: white;
         border: 1px solid #f1f5f9;
         border-radius: 2.5rem;
-        padding: 1.5rem;
         display: flex;
         align-items: center;
-        gap: 1.25rem;
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
     }
 
+    .selection-card {
+        padding: 1.5rem;
+        gap: 1.25rem;
+    }
+
+    .selection-card-mini {
+        padding: 1rem 1.25rem;
+        gap: 0.75rem;
+    }
+
+    .promo-card {
+        background: linear-gradient(145deg, #fffbeb 0%, #ffffff 100%);
+        border-color: #fde68a;
+    }
+
     .selection-card:hover, .selection-card-mini:hover {
         border-color: #06b6d4;
-        box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.15);
-        transform: translateY(-4px);
+        box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.15);
+        transform: translateY(-5px);
+    }
+
+    .promo-card:hover {
+        border-color: #f59e0b;
+        box-shadow: 0 25px 50px -12px rgba(245, 158, 11, 0.15);
     }
 
     /* PREMIUM STATE - THE GLOW EFFECT */
@@ -45,35 +78,74 @@ include_once 'includes/head.php';
     #booking-app .selection-card-mini.selected {
         background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%) !important;
         border-color: transparent !important;
-        box-shadow: 0 25px 50px -12px rgba(8, 145, 178, 0.4) !important;
-        transform: scale(1.02) translateY(-4px);
+        box-shadow: 0 30px 60px -12px rgba(8, 145, 178, 0.45) !important;
+        transform: scale(1.03) translateY(-5px);
+    }
+
+    #booking-app .promo-card.selected {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+        box-shadow: 0 30px 60px -12px rgba(245, 158, 11, 0.45) !important;
     }
     
+    #booking-app .selection-card, #booking-app .selection-card-mini,
+    #booking-app .selection-card h4, #booking-app .selection-card p,
+    #booking-app .selection-card-mini p {
+        transition: color 0.4s ease, background 0.4s ease, transform 0.4s ease;
+    }
+
     #booking-app .selected h4, 
     #booking-app .selected p, 
-    #booking-app .selected span:not(.material-symbols-outlined) {
+    #booking-app .selected span {
         color: white !important;
-    }
-
-    #booking-app .selected .bg-slate-50,
-    #booking-app .selected .bg-cyan-50 {
-        background-color: rgba(255, 255, 255, 0.15) !important;
-        color: white !important;
-    }
-
-    #booking-app .selected .material-symbols-outlined {
-        color: white !important;
-        background: rgba(255, 255, 255, 0.2);
     }
 
     /* 3. SIDEBAR DASHBOARD STYLE */
     .summary-sidebar {
-        background: rgba(255, 255, 255, 0.6);
-        backdrop-filter: blur(30px);
-        border: 1px solid rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
         border-radius: 3.5rem;
         padding: 2.5rem;
-        box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.05);
+        box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.06);
+    }
+
+    /* 4. CHIPS CATEGORIES (CRO IMPROVEMENT) */
+    .cat-chip {
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        border: 1px solid #f1f5f9;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        background-color: white;
+        color: #94a3b8;
+    }
+    .cat-chip:hover {
+        border-color: #a5f3fc;
+        color: #0891b2;
+    }
+    .cat-chip.active {
+        background-color: #0891b2;
+        border-color: #0891b2;
+        color: white;
+        box-shadow: 0 10px 15px -3px rgba(8, 145, 178, 0.2), 0 4px 6px -4px rgba(8, 145, 178, 0.2);
+    }
+
+    /* 5. MOBILE FAB & SPACING */
+    @media (max-width: 768px) {
+        .selection-card-mini { margin-bottom: 0.5rem; }
+        #mobile-action-bar {
+            display: flex !important;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            z-index: 100;
+        }
     }
 
     .summary-item.completed {
@@ -124,6 +196,24 @@ include_once 'includes/head.php';
                 <div class="mb-10">
                     <span class="text-[9px] font-black tracking-[0.3em] text-cyan-600 uppercase opacity-70">Experiencia Digital</span>
                     <h2 class="text-2xl font-light text-slate-800 mt-2">Tu <span class="font-bold">Cita</span></h2>
+                </div>
+
+                <!-- SOCIAL PROOF (NUEVO) -->
+                <div class="mb-8 p-4 bg-slate-50/80 rounded-2xl border border-slate-100/50 flex items-center gap-3">
+                    <div class="flex -space-x-2">
+                        <div class="w-6 h-6 rounded-full bg-cyan-100 border-2 border-white flex items-center justify-center text-[8px] font-bold">4.9</div>
+                        <div class="w-6 h-6 rounded-full bg-slate-200 border-2 border-white"></div>
+                    </div>
+                    <div>
+                        <p class="text-[9px] font-bold text-slate-700">+50k Diagnósticos</p>
+                        <div class="flex text-[8px] text-amber-400">
+                            <span class="material-symbols-outlined text-[10px]">star</span>
+                            <span class="material-symbols-outlined text-[10px]">star</span>
+                            <span class="material-symbols-outlined text-[10px]">star</span>
+                            <span class="material-symbols-outlined text-[10px]">star</span>
+                            <span class="material-symbols-outlined text-[10px]">star</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="space-y-6 flex-grow">
@@ -178,117 +268,97 @@ include_once 'includes/head.php';
             <div class="col-span-12 lg:col-span-6 bg-white rounded-[3rem] p-10 shadow-xl shadow-slate-200/50 min-h-[700px] relative overflow-hidden flex flex-col">
                 
                 <!-- STEP 1: Study Selection -->
-                <div id="step-1" class="booking-step active-step flex flex-col h-full overflow-hidden">
+                <div id="step-1" class="booking-step active-step flex flex-col h-full">
+                    <div class="mb-6 flex-shrink-0">
+                        <h3 class="text-2xl font-light text-slate-900 mb-1">Personaliza tu <span class="font-bold">Diagnóstico</span></h3>
+                        <p class="text-slate-400 text-[9px] tracking-[0.2em] uppercase font-black">Módulo 01: Servicios de Alta Precisión</p>
+                    </div>
+
+                    <!-- 1.1 Estudios Populares -->
                     <div class="mb-8 flex-shrink-0">
-                        <h3 class="text-3xl font-light text-slate-900 mb-1">Selección <span class="font-bold">Clínica</span></h3>
-                        <p class="text-slate-400 text-[10px] tracking-[0.2em] uppercase font-black">Módulo 01: Servicios Digitales</p>
-                    </div>
-
-                    <!-- 1.1 Estudios Populares (SIEMPRE VISIBLES) -->
-                    <div class="mb-8 flex-shrink-0">
-                        <span class="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-4">Sugerencias Rápidas</span>
-                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                            <div class="selection-card-mini group" data-study-id="st-1" onclick="toggleStudy('st-1', 950, 'Ortodóntico Completo')">
-                                <div class="flex-grow">
-                                    <p class="text-[10px] font-bold text-slate-700 group-hover:text-cyan-700">Ortodóntico</p>
-                                    <p class="text-[10px] font-light text-cyan-600">$950.00</p>
+                        <span class="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] block mb-4">Sugerencias Clínicas</span>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="selection-card-mini promo-card group" data-study-id="st-1" onclick="toggleStudy('st-1', 950, 'Ortodóntico Completo (Caja de cartón)')">
+                                <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-white text-[7px] font-black uppercase tracking-widest px-2 py-0.5 rounded-bl-xl shadow-sm z-10">Promo</div>
+                                <div class="flex-grow min-w-0 pr-3 mt-1">
+                                    <p class="text-xs font-bold text-slate-700 transition-colors line-clamp-2">Ortodóntico Completo (caja de cartón)</p>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <p class="text-[11px] font-black text-amber-600 transition-colors">$950.00</p>
+                                        <p class="text-[9px] font-medium text-slate-400 line-through transition-colors">$1,250.00</p>
+                                    </div>
                                 </div>
-                                <span class="material-symbols-outlined text-slate-300 group-hover:text-cyan-500 text-sm">add_circle</span>
+                                <span class="material-symbols-outlined flex-shrink-0 text-amber-300 group-hover:text-amber-500 text-lg transition-colors mt-1">sell</span>
                             </div>
-                            <div class="selection-card-mini group" data-study-id="rx-p" onclick="toggleStudy('rx-p', 237.60, 'Panorámica Digital')">
-                                <div class="flex-grow">
-                                    <p class="text-[10px] font-bold text-slate-700 group-hover:text-cyan-700">Panorámica</p>
-                                    <p class="text-[10px] font-light text-cyan-600">$237.60</p>
+                            <div class="selection-card-mini promo-card group" data-study-id="rx-p" onclick="toggleStudy('rx-p', 237.60, 'Panorámica (ortopantomografía)')">
+                                <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-white text-[7px] font-black uppercase tracking-widest px-2 py-0.5 rounded-bl-xl shadow-sm z-10">Promo</div>
+                                <div class="flex-grow min-w-0 pr-3 mt-1">
+                                    <p class="text-xs font-bold text-slate-700 transition-colors line-clamp-2">Panorámica (ortopantomografía)</p>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <p class="text-[11px] font-black text-amber-600 transition-colors">$237.60</p>
+                                        <p class="text-[9px] font-medium text-slate-400 line-through transition-colors">$350.00</p>
+                                    </div>
                                 </div>
-                                <span class="material-symbols-outlined text-slate-300 group-hover:text-cyan-500 text-sm">add_circle</span>
+                                <span class="material-symbols-outlined flex-shrink-0 text-amber-300 group-hover:text-amber-500 text-lg transition-colors mt-1">sell</span>
                             </div>
-                            <div class="selection-card-mini group" data-study-id="tm-1" onclick="toggleStudy('tm-1', 1790.00, 'Tomografía Completa')">
-                                <div class="flex-grow">
-                                    <p class="text-[10px] font-bold text-slate-700 group-hover:text-cyan-700">Tomografía</p>
-                                    <p class="text-[10px] font-light text-cyan-600">$1,790.00</p>
+                            <div class="selection-card-mini promo-card group" data-study-id="tm-1" onclick="toggleStudy('tm-1', 1790.00, 'Tomografía completa (USB)')">
+                                <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-white text-[7px] font-black uppercase tracking-widest px-2 py-0.5 rounded-bl-xl shadow-sm z-10">Promo</div>
+                                <div class="flex-grow min-w-0 pr-3 mt-1">
+                                    <p class="text-xs font-bold text-slate-700 transition-colors line-clamp-2">Tomografía completa (USB)</p>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <p class="text-[11px] font-black text-amber-600 transition-colors">$1,790.00</p>
+                                        <p class="text-[9px] font-medium text-slate-400 line-through transition-colors">$2,200.00</p>
+                                    </div>
                                 </div>
-                                <span class="material-symbols-outlined text-slate-300 group-hover:text-cyan-500 text-sm">add_circle</span>
+                                <span class="material-symbols-outlined flex-shrink-0 text-amber-300 group-hover:text-amber-500 text-lg transition-colors mt-1">sell</span>
                             </div>
-                            <div class="selection-card-mini group" data-study-id="sc-1" onclick="toggleStudy('sc-1', 750.00, 'Escaneo Intraoral')">
-                                <div class="flex-grow">
-                                    <p class="text-[10px] font-bold text-slate-700 group-hover:text-cyan-700">Escaneo 3D</p>
-                                    <p class="text-[10px] font-light text-cyan-600">$750.00</p>
+                            <div class="selection-card-mini promo-card group" data-study-id="sc-1" onclick="toggleStudy('sc-1', 750.00, 'Escaneo intraoral + impresión 3D')">
+                                <div class="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-white text-[7px] font-black uppercase tracking-widest px-2 py-0.5 rounded-bl-xl shadow-sm z-10">Promo</div>
+                                <div class="flex-grow min-w-0 pr-3 mt-1">
+                                    <p class="text-xs font-bold text-slate-700 transition-colors line-clamp-2">Escaneo intraoral + impresión 3D</p>
+                                    <div class="flex items-center gap-2 mt-0.5">
+                                        <p class="text-[11px] font-black text-amber-600 transition-colors">$750.00</p>
+                                        <p class="text-[9px] font-medium text-slate-400 line-through transition-colors">$950.00</p>
+                                    </div>
                                 </div>
-                                <span class="material-symbols-outlined text-slate-300 group-hover:text-cyan-500 text-sm">add_circle</span>
+                                <span class="material-symbols-outlined flex-shrink-0 text-amber-300 group-hover:text-amber-500 text-lg transition-colors mt-1">sell</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 1.2 Buscador y Panel de Filtros -->
-                    <div class="bg-slate-50 rounded-[2.5rem] p-4 mb-6 flex-shrink-0 border border-slate-100 shadow-sm transition-all duration-300">
-                        <div class="flex items-center gap-4">
-                            <div class="relative flex-grow">
-                                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
-                                <input type="text" id="study-search" placeholder="Busca por nombre o categoría..." 
-                                       class="w-full bg-white border-none rounded-2xl py-3 pl-11 pr-4 text-xs shadow-sm focus:ring-2 focus:ring-cyan-500 transition-all">
-                            </div>
-                            <button onclick="toggleFilters()" class="px-6 h-11 rounded-2xl bg-white shadow-sm flex items-center gap-3 text-slate-500 hover:text-cyan-600 transition-all border border-slate-100 group">
-                                <span class="text-[10px] font-black uppercase tracking-widest">Filtrar</span>
-                                <div class="w-6 h-6 rounded-lg bg-slate-50 flex items-center justify-center group-hover:bg-cyan-50 transition-colors">
-                                    <span id="filter-icon" class="material-symbols-outlined text-lg">expand_more</span>
-                                </div>
-                            </button>
+                    <!-- 1.2 Buscador Integrado (CRO IMPROVEMENT) -->
+                    <div class="mb-6 flex-shrink-0">
+                        <div class="relative mb-4">
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+                            <input type="text" id="study-search" oninput="renderStudies('all', this.value)" placeholder="Encuentra tu estudio (ej. Panorámica, Tomografía...)" 
+                                   class="w-full bg-slate-50 border-2 border-transparent rounded-2xl py-4 pl-12 pr-4 text-sm focus:bg-white focus:border-cyan-200 focus:ring-4 focus:ring-cyan-500/5 transition-all outline-none">
                         </div>
-
-                        <!-- PANEL COLAPSABLE: Categorías + Listado de Estudios -->
-                        <div id="filter-container" class="max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
-                            <!-- Categorías -->
-                            <div class="pt-8 pb-6 border-b border-slate-100 mb-6">
-                                <div class="flex justify-between items-start px-2">
-                                    <div class="category-btn active" onclick="filterCategory('all')">
-                                        <div class="cat-circle">
-                                            <span class="material-symbols-outlined text-xl">grid_view</span>
-                                        </div>
-                                        <span class="cat-label">Todos</span>
-                                    </div>
-                                    <div class="category-btn" onclick="filterCategory('radiologia')">
-                                        <div class="cat-circle">
-                                            <span class="material-symbols-outlined text-xl">radiology</span>
-                                        </div>
-                                        <span class="cat-label">Radiología</span>
-                                    </div>
-                                    <div class="category-btn" onclick="filterCategory('tomografia')">
-                                        <div class="cat-circle">
-                                            <span class="material-symbols-outlined text-xl">3d_rotation</span>
-                                        </div>
-                                        <span class="cat-label">Tomografía</span>
-                                    </div>
-                                    <div class="category-btn" onclick="filterCategory('escaneo')">
-                                        <div class="cat-circle">
-                                            <span class="material-symbols-outlined text-xl">biotech</span>
-                                        </div>
-                                        <span class="cat-label">Escaneo</span>
-                                    </div>
-                                    <div class="category-btn" onclick="filterCategory('otros')">
-                                        <div class="cat-circle">
-                                            <span class="material-symbols-outlined text-xl">more_horiz</span>
-                                        </div>
-                                        <span class="cat-label">Otros</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Listado Dinámico (Expansión natural sin scroll interno) -->
-                            <div id="studies-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-4 pb-4">
-                                <!-- Aquí se inyectan los estudios dinámicamente -->
-                            </div>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <div class="cat-chip active" onclick="filterCategory('all', this)">Todos</div>
+                            <div class="cat-chip" onclick="filterCategory('radiologia', this)">Radiología</div>
+                            <div class="cat-chip" onclick="filterCategory('tomografia', this)">Tomografía</div>
+                            <div class="cat-chip" onclick="filterCategory('escaneo', this)">Escaneo 3D</div>
+                            <div class="cat-chip" onclick="filterCategory('otros', this)">Complementos</div>
                         </div>
                     </div>
+                    
+                    <div id="filter-container" class="expanded">
+                        <div id="studies-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-4 pb-8 pt-4 px-6 -mx-6 max-h-[400px] overflow-y-auto custom-scrollbar">
+                            <!-- Inyectados -->
+                        </div>
+                    </div>
+                    
+                    <p class="mt-4 text-[10px] text-slate-400 italic text-center">¿No encuentras lo que necesitas? Tu médico nos enviará la orden definitiva en tu visita.</p>
                 </div>
 
                 <!-- STEP 2: Branch Selection -->
                 <div id="step-2" class="booking-step hidden opacity-0 translate-x-20 flex flex-col">
-                    <div class="mb-10 flex-shrink-0">
-                        <h3 class="text-4xl font-light text-slate-900 mb-2">Selecciona <span class="font-bold">Sucursal</span></h3>
-                        <p class="text-slate-400 text-sm">Contamos con ubicaciones estratégicas para tu comodidad.</p>
+                    <div class="mb-6 flex-shrink-0">
+                        <h3 class="text-2xl font-light text-slate-900 mb-1">Siguiente Paso: <span class="font-bold">Ubicación</span></h3>
+                        <p class="text-slate-400 text-[9px] tracking-[0.2em] uppercase font-black">Instalaciones de Vanguardia</p>
                     </div>
                     
-                    <div class="space-y-4 pb-8 overflow-y-auto pr-2 custom-scrollbar max-h-[500px]">
+                    <div class="space-y-4 pb-8 pt-4 px-6 -mx-6 overflow-y-auto custom-scrollbar max-h-[500px]">
                         <!-- COAPA -->
                         <div class="selection-card group p-0 overflow-hidden flex h-40 transition-all border border-slate-100 hover:border-cyan-500" data-branch-id="coapa" onclick="selectBranch('COAPA', 'Plaza Market Place Local 13, Prol. División del Norte')">
                             <div class="w-1/3 h-full overflow-hidden flex-shrink-0">
@@ -370,7 +440,7 @@ include_once 'includes/head.php';
                         <!-- AJUSCO -->
                         <div class="selection-card group p-0 overflow-hidden flex h-40 transition-all border border-slate-100 hover:border-cyan-500" data-branch-id="ajusco" onclick="selectBranch('AJUSCO', 'Carretera Picacho Ajusco 160')">
                             <div class="w-1/3 h-full overflow-hidden flex-shrink-0">
-                                <img src="img/clinic_ajusco_lobby_1777595933587.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <img src="img/clinic_ajusco_lobby_1777595933587.png" alt="Sucursal OID Ajusco - Radiología e Imagen Digital" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             </div>
                             <div class="flex-grow p-6 flex flex-col justify-between">
                                 <div>
@@ -396,7 +466,7 @@ include_once 'includes/head.php';
                         <!-- CRUZ ROJA -->
                         <div class="selection-card group p-0 overflow-hidden flex h-40 transition-all border border-slate-100 hover:border-cyan-500" data-branch-id="cruzroja" onclick="selectBranch('CRUZ ROJA', 'Av. Ejército Nacional Mexicano 1032')">
                             <div class="w-1/3 h-full overflow-hidden flex-shrink-0">
-                                <img src="img/clinic_cruzroja_lobby_v2_1777595951555.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <img src="img/clinic_cruzroja_lobby_v2_1777595951555.png" alt="Sucursal OID Polanco Cruz Roja - Radiología e Imagen Digital" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             </div>
                             <div class="flex-grow p-6 flex flex-col justify-between">
                                 <div>
@@ -423,41 +493,27 @@ include_once 'includes/head.php';
 
                 <!-- STEP 3: Schedule -->
                 <div id="step-3" class="booking-step hidden opacity-0 translate-x-20 flex flex-col">
-                    <div class="mb-10 flex-shrink-0">
-                        <h3 class="text-4xl font-light text-slate-900 mb-2">Tu <span class="font-bold">Agenda</span></h3>
-                        <p class="text-slate-400 text-sm">Selecciona el día y horario que mejor te acomode.</p>
+                    <div class="mb-6 flex-shrink-0">
+                        <h3 class="text-2xl font-light text-slate-900 mb-1">Asegura tu <span class="font-bold">Espacio</span></h3>
+                        <p class="text-slate-400 text-[9px] tracking-[0.2em] uppercase font-black">Disponibilidad en Tiempo Real</p>
                     </div>
 
                     <div class="space-y-8 overflow-y-auto pr-2 custom-scrollbar">
-                        <div class="flex gap-4 overflow-x-auto pb-4 custom-scrollbar">
-                            <div class="min-w-[120px] p-5 rounded-3xl border-2 border-cyan-500 bg-cyan-50 text-center cursor-pointer transition-all hover:shadow-lg opacity-100" onclick="selectDate('30 Abr', 'Hoy', this)">
-                                <p class="text-[9px] text-cyan-600 font-black uppercase tracking-widest mb-1">Hoy</p>
-                                <p class="text-2xl font-bold text-slate-800">30 Abr</p>
-                                <p class="text-[10px] text-slate-400 mt-1">Jueves</p>
-                            </div>
-                            <div class="min-w-[120px] p-5 rounded-3xl border-2 border-slate-100 bg-white text-center cursor-pointer opacity-60 hover:opacity-100 hover:border-cyan-200 transition-all" onclick="selectDate('01 May', 'Mañana', this)">
-                                <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-1">Mañana</p>
-                                <p class="text-2xl font-bold text-slate-800">01 May</p>
-                                <p class="text-[10px] text-slate-400 mt-1">Viernes</p>
-                            </div>
-                            <div class="min-w-[120px] p-5 rounded-3xl border-2 border-slate-100 bg-white text-center cursor-pointer opacity-60 hover:opacity-100 hover:border-cyan-200 transition-all" onclick="selectDate('02 May', 'Sábado', this)">
-                                <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-1">Sábado</p>
-                                <p class="text-2xl font-bold text-slate-800">02 May</p>
-                                <p class="text-[10px] text-slate-400 mt-1">Sábado</p>
-                            </div>
+                        <div id="date-cards-container" class="flex gap-4 overflow-x-auto pb-4 custom-scrollbar">
+                            <!-- Dynamic Date Cards Generated via JS -->
                         </div>
 
                         <div>
                             <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Horarios Disponibles</p>
                             <div class="grid grid-cols-3 md:grid-cols-4 gap-3">
-                                <button onclick="selectTime('09:00 AM', '30 Abr')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">09:00 AM</button>
-                                <button onclick="selectTime('10:00 AM', '30 Abr')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">10:00 AM</button>
-                                <button onclick="selectTime('11:00 AM', '30 Abr')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">11:00 AM</button>
-                                <button onclick="selectTime('12:00 PM', '30 Abr')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">12:00 PM</button>
-                                <button onclick="selectTime('01:00 PM', '30 Abr')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">01:00 PM</button>
-                                <button onclick="selectTime('04:00 PM', '30 Abr')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">04:00 PM</button>
-                                <button onclick="selectTime('05:00 PM', '30 Abr')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">05:00 PM</button>
-                                <button onclick="selectTime('06:00 PM', '30 Abr')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">06:00 PM</button>
+                                <button onclick="selectTime('09:00 AM')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">09:00 AM</button>
+                                <button onclick="selectTime('10:00 AM')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">10:00 AM</button>
+                                <button onclick="selectTime('11:00 AM')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">11:00 AM</button>
+                                <button onclick="selectTime('12:00 PM')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">12:00 PM</button>
+                                <button onclick="selectTime('01:00 PM')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">01:00 PM</button>
+                                <button onclick="selectTime('04:00 PM')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">04:00 PM</button>
+                                <button onclick="selectTime('05:00 PM')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">05:00 PM</button>
+                                <button onclick="selectTime('06:00 PM')" class="p-4 rounded-2xl border border-slate-100 text-xs font-bold text-slate-600 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-600 transition-all shadow-sm">06:00 PM</button>
                             </div>
                         </div>
                     </div>
@@ -465,9 +521,9 @@ include_once 'includes/head.php';
 
                 <!-- STEP 4: Patient -->
                 <div id="step-4" class="booking-step hidden opacity-0 translate-x-20 h-full flex flex-col">
-                    <div class="mb-10 flex-shrink-0">
-                        <h3 class="text-4xl font-light text-slate-900 mb-2">Tus <span class="font-bold">Datos</span></h3>
-                        <p class="text-slate-400 text-sm">Información necesaria para tu registro clínico.</p>
+                    <div class="mb-6 flex-shrink-0">
+                        <h3 class="text-2xl font-light text-slate-900 mb-1">Tus <span class="font-bold">Datos</span></h3>
+                        <p class="text-slate-400 text-[9px] tracking-[0.2em] uppercase font-black">Información para tu Registro Clínico</p>
                     </div>
 
                     <form id="patient-form" class="space-y-6 overflow-y-auto pr-2 custom-scrollbar pb-6" oninput="updatePatientSummary()">
@@ -543,6 +599,14 @@ include_once 'includes/head.php';
                     Continuar Reservación
                     <span class="material-symbols-outlined text-lg">arrow_forward</span>
                 </button>
+
+                <!-- MOBILE FLOATING ACTION BAR (NUEVO) -->
+                <div id="mobile-action-bar" class="hidden">
+                    <button onclick="nextStep()" class="w-full h-16 bg-cyan-600 text-white rounded-full font-bold shadow-2xl flex items-center justify-center gap-3">
+                        <span id="mobile-btn-text">Continuar</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
             </aside>
 
         </div>
@@ -703,30 +767,27 @@ include_once 'includes/head.php';
             return matchCat && matchSearch;
         });
 
+        if (filtered.length === 0) {
+            grid.innerHTML = '<div class="col-span-full py-10 text-center"><p class="text-slate-400 text-xs italic">No encontramos estudios que coincidan con tu búsqueda.</p></div>';
+            return;
+        }
+
         grid.innerHTML = filtered.map(s => `
-            <div class="selection-card group ${bookingState.selectedStudies.some(sel => sel.id === s.id) ? 'selected' : ''}" 
+            <div class="selection-card-mini group ${bookingState.selectedStudies.some(sel => sel.id === s.id) ? 'selected' : ''}" 
                  data-study-id="${s.id}" 
                  onclick="toggleStudy('${s.id}', ${s.price}, '${s.name}')">
-                <div class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-cyan-500 group-hover:text-white transition-all flex-shrink-0">
-                    <span class="material-symbols-outlined text-lg">${s.icon}</span>
+                <div class="flex-grow min-w-0 pr-3">
+                    <p class="text-xs font-bold text-slate-700 transition-colors line-clamp-2">${s.name}</p>
+                    <p class="text-[11px] font-medium text-cyan-600 transition-colors mt-0.5">$${s.price.toFixed(2)}</p>
                 </div>
-                <div class="flex-grow min-w-0">
-                    <h4 class="text-[11px] font-bold text-slate-800 leading-tight truncate">${s.name}</h4>
-                    <p class="text-[9px] text-slate-400 truncate">${s.desc}</p>
-                </div>
-                <div class="text-right flex-shrink-0">
-                    <p class="text-sm font-bold text-slate-900">$${s.price.toFixed(2)}</p>
-                    <span class="text-[8px] font-black text-cyan-500 tracking-widest uppercase">Seleccionar</span>
-                </div>
+                <span class="material-symbols-outlined flex-shrink-0 text-slate-300 group-hover:text-cyan-500 text-lg transition-colors">add_circle</span>
             </div>
         `).join('');
     }
 
-    function filterCategory(cat) {
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            if (btn.getAttribute('onclick').includes(`'${cat}'`)) btn.classList.add('active');
-            else btn.classList.remove('active');
-        });
+    function filterCategory(cat, element) {
+        document.querySelectorAll('.cat-chip').forEach(chip => chip.classList.remove('active'));
+        if (element) element.classList.add('active');
         renderStudies(cat, document.getElementById('study-search').value);
     }
 
@@ -738,10 +799,80 @@ include_once 'includes/head.php';
         icon.innerText = container.classList.contains('expanded') ? 'expand_less' : 'expand_more';
     }
 
-    function selectDate(date, label, element) {
-        bookingState.schedule = { ...bookingState.schedule, date: `${label} ${date}` };
+    function formatDateToDDMMYYYY(dateObj) {
+        const d = String(dateObj.getDate()).padStart(2, '0');
+        const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+        const y = dateObj.getFullYear();
+        return `${d}/${m}/${y}`;
+    }
+
+    function renderDateCards() {
+        const container = document.getElementById('date-cards-container');
+        if (!container) return;
+
+        const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+
+        let html = '';
+
+        for (let i = 0; i < 3; i++) {
+            const dateObj = new Date();
+            dateObj.setDate(dateObj.getDate() + i);
+
+            const dayName = days[dateObj.getDay()];
+            const dayNum = String(dateObj.getDate()).padStart(2, '0');
+            const monthName = months[dateObj.getMonth()];
+            const formattedDate = formatDateToDDMMYYYY(dateObj); // dd/MM/yyyy
+
+            let label = '';
+            if (i === 0) label = 'Hoy';
+            else if (i === 1) label = 'Mañana';
+            else label = dayName;
+
+            html += `
+                <div class="min-w-[90px] p-3 rounded-2xl border-2 border-slate-100 bg-white text-center cursor-pointer opacity-60 hover:opacity-100 hover:border-cyan-200 transition-all date-card" onclick="selectDate('${formattedDate}', '${label}', '${dayNum} ${monthName}', this)">
+                    <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-1">${label}</p>
+                    <p class="text-xl font-bold text-slate-800">${dayNum} <span class="text-sm">${monthName}</span></p>
+                    <p class="text-[9px] text-slate-400 mt-1">${dayName}</p>
+                </div>
+            `;
+        }
+
+        html += `
+            <div class="min-w-[90px] p-3 rounded-2xl border-2 border-slate-100 bg-white text-center cursor-pointer opacity-60 hover:opacity-100 hover:border-cyan-200 transition-all date-card relative flex flex-col justify-center items-center overflow-hidden" onclick="document.getElementById('custom-date-picker').showPicker()">
+                <input type="date" id="custom-date-picker" class="absolute w-0 h-0 opacity-0" onchange="handleCustomDate(this)">
+                <span class="material-symbols-outlined text-slate-400 text-2xl mb-1 transition-colors">calendar_month</span>
+                <p id="custom-date-label" class="text-[10px] font-bold text-slate-600">Elegir Fecha</p>
+            </div>
+        `;
+
+        container.innerHTML = html;
         
-        // Visual feedback for dates
+        // Auto-select today
+        const firstCard = container.querySelector('.date-card');
+        if (firstCard) firstCard.click();
+    }
+
+    function handleCustomDate(input) {
+        if (!input.value) return;
+        const parts = input.value.split('-');
+        const formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`;
+        
+        const dateObj = new Date(input.value + "T00:00:00");
+        const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+        const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        const dayName = days[dateObj.getDay()];
+        const monthName = months[dateObj.getMonth()];
+        const displaySub = `${parts[2]} ${monthName}`;
+
+        const calendarCard = input.parentElement;
+        selectDate(formattedDate, dayName, displaySub, calendarCard);
+        calendarCard.querySelector('#custom-date-label').innerText = formattedDate;
+    }
+
+    function selectDate(dateStr, label, displaySub, element) {
+        bookingState.schedule = { ...bookingState.schedule, date: dateStr, displayLabel: label, displaySub: displaySub };
+        
         document.querySelectorAll('#step-3 .flex.gap-4 > div').forEach(el => {
             el.classList.remove('border-cyan-500', 'bg-cyan-50', 'opacity-100');
             el.classList.add('border-slate-100', 'bg-white', 'opacity-60');
@@ -750,11 +881,10 @@ include_once 'includes/head.php';
         element.classList.add('border-cyan-500', 'bg-cyan-50', 'opacity-100');
         element.classList.remove('border-slate-100', 'bg-white', 'opacity-60');
 
-        // Update summary if needed
         const summaryEl = document.getElementById('summary-schedule');
         if (summaryEl && bookingState.schedule.time) {
             summaryEl.classList.add('completed');
-            summaryEl.querySelector('p.text-sm').innerText = `${label} ${date} - ${bookingState.schedule.time}`;
+            summaryEl.querySelector('p.text-sm').innerText = `${label} ${displaySub} - ${bookingState.schedule.time}`;
         }
     }
 
@@ -763,8 +893,11 @@ include_once 'includes/head.php';
         const summaryEl = document.getElementById('summary-branch');
         if (summaryEl) {
             summaryEl.classList.add('completed');
-            summaryEl.querySelector('p.text-sm').innerText = name;
-            summaryEl.querySelector('p.text-[11px]').innerText = address;
+            const paragraphs = summaryEl.querySelectorAll('p');
+            if(paragraphs.length >= 2) {
+                paragraphs[0].innerText = name;
+                paragraphs[1].innerText = address;
+            }
         }
         document.querySelectorAll('#step-2 .selection-card').forEach(card => {
             card.classList.toggle('selected', card.querySelector('h4').innerText === name);
@@ -772,12 +905,14 @@ include_once 'includes/head.php';
         setTimeout(() => goToStep(3), 600);
     }
 
-    function selectTime(time, date) {
-        bookingState.schedule = { time, date };
+    function selectTime(time) {
+        bookingState.schedule.time = time;
         const summaryEl = document.getElementById('summary-schedule');
         if (summaryEl) {
             summaryEl.classList.add('completed');
-            summaryEl.querySelector('p.text-sm').innerText = `${date} - ${time}`;
+            const lbl = bookingState.schedule.displayLabel || '';
+            const sub = bookingState.schedule.displaySub || bookingState.schedule.date || '';
+            summaryEl.querySelector('p.text-sm').innerText = `${lbl} ${sub} - ${time}`;
         }
         document.querySelectorAll('#step-3 button').forEach(btn => {
             btn.classList.toggle('bg-cyan-500', btn.innerText === time);
@@ -831,13 +966,20 @@ include_once 'includes/head.php';
 
     function updateMainButton() {
         const btn = document.getElementById('main-action-btn');
+        const mobileBtn = document.getElementById('mobile-btn-text');
+        
         if (!btn) return;
+        
         if (bookingState.currentStep === 4) {
-            btn.innerHTML = `Agendar Cita Ahora <span class="material-symbols-outlined">check_circle</span>`;
+            const finalTxt = `Agendar Cita Ahora`;
+            btn.innerHTML = `${finalTxt} <span class="material-symbols-outlined">check_circle</span>`;
             btn.classList.add('bg-cyan-600');
+            if (mobileBtn) mobileBtn.innerText = finalTxt;
         } else {
-            btn.innerHTML = `Continuar Reservación <span class="material-symbols-outlined">arrow_forward</span>`;
+            const nextTxt = `Continuar Reservación`;
+            btn.innerHTML = `${nextTxt} <span class="material-symbols-outlined">arrow_forward</span>`;
             btn.classList.remove('bg-cyan-600');
+            if (mobileBtn) mobileBtn.innerText = `Continuar`;
         }
     }
 
@@ -853,6 +995,7 @@ include_once 'includes/head.php';
             renderStudies(activeCat, e.target.value);
         });
 
+        renderDateCards();
         renderStudies();
         updateOrderSummary();
     });
