@@ -338,7 +338,7 @@ include_once 'includes/head.php';
                             <div class="cat-chip" onclick="filterCategory('radiologia', this)">Radiología</div>
                             <div class="cat-chip" onclick="filterCategory('tomografia', this)">Tomografía</div>
                             <div class="cat-chip" onclick="filterCategory('escaneo', this)">Escaneo 3D</div>
-                            <div class="cat-chip" onclick="filterCategory('otros', this)">Complementos</div>
+                             <div class="cat-chip" onclick="filterCategory('otros', this)">Especializados</div>
                         </div>
                     </div>
                     

@@ -2,23 +2,94 @@
     document.addEventListener('DOMContentLoaded', () => {
         gsap.registerPlugin(ScrollTrigger);
 
-        // 1. Scrollytelling
-        const video = document.getElementById("scrolly-video");
-        if (video) {
+        // 2. Micro-transitions (Se activa al terminar el scrolly o como fallback)
+        window.revealHeroContent = () => {
+            if (window.heroContentRevealed) return;
+            window.heroContentRevealed = true;
+            
+            const heroItems = document.querySelectorAll(".hero-anim-item");
+            if (heroItems.length > 0) {
+                gsap.to(heroItems, { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1.2, 
+                    stagger: 0.15, 
+                    ease: "power3.out",
+                    force3D: true,
+                    clearProps: "transform" // Evita conflictos con parallax posterior
+                });
+            }
+        };
+
+        const canvas = document.getElementById("scrolly-canvas");
+        if (canvas) {
+            const context = canvas.getContext("2d");
+            const frameCount = 40;
+            const currentFrame = index => `video/index_transicion_3/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`;
+            
+            const images = [];
+            const videoFrames = { frame: 0 };
+
+            // Preload images
+            for (let i = 0; i < frameCount; i++) {
+                const img = new Image();
+                img.src = currentFrame(i);
+                images.push(img);
+            }
+
+            const render = () => {
+                if (!images[videoFrames.frame]) return;
+                
+                const img = images[videoFrames.frame];
+                const canvasAspect = canvas.width / canvas.height;
+                const imgAspect = img.width / img.height;
+                
+                let drawWidth, drawHeight, offsetX, offsetY;
+
+                if (canvasAspect > imgAspect) {
+                    drawWidth = canvas.width;
+                    drawHeight = canvas.width / imgAspect;
+                    offsetX = 0;
+                    offsetY = (canvas.height - drawHeight) / 2;
+                } else {
+                    drawWidth = canvas.height * imgAspect;
+                    drawHeight = canvas.height;
+                    offsetX = (canvas.width - drawWidth) / 2;
+                    offsetY = 0;
+                }
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+            };
+
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                render();
+            };
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
             const initScrolly = () => {
                 const scrollyTL = gsap.timeline({
                     scrollTrigger: {
                         trigger: "#intro-scrolly",
                         start: "top top",
-                        end: "+=250%",
-                        scrub: true,
+                        end: "+=400%",
+                        scrub: 1.2,
                         pin: true,
                         anticipatePin: 1
                     }
                 });
                 
-                // Animación del video (currentTime)
-                scrollyTL.to(video, { currentTime: video.duration || 5, ease: "none" }, 0);
+                // Animación de frames del canvas
+                scrollyTL.to(videoFrames, { 
+                    frame: frameCount - 1, 
+                    snap: "frame", 
+                    ease: "none", 
+                    onUpdate: render 
+                }, 0);
                 
                 // Animación de los pasos de texto
                 const steps = ["#step-1", "#step-2", "#step-3", "#step-4"];
@@ -29,24 +100,27 @@
                              .to(step, { opacity: 0, y: -30, duration: 0.1 }, endPos - 0.05);
                 });
 
-                // Transición de salida del video y entrada del Main
-                scrollyTL.to(video, { scale: 0.85, borderRadius: "60px", filter: "blur(15px)", opacity: 0, duration: 0.3 }, 0.7)
-                    .to("#intro-scrolly", { autoAlpha: 0, duration: 0.3 }, 0.8)
-                    .from("main", { y: 200, opacity: 0, duration: 0.4, ease: "power2.out" }, 0.7)
-                    .to("main", { marginTop: "-15vh", duration: 0.2 }, 0.8)
+                // Transición de salida y entrada del Main
+                scrollyTL.to(canvas, { scale: 0.85, borderRadius: "60px", filter: "blur(15px)", opacity: 0, duration: 0.3 }, 0.8)
+                    .to("#intro-scrolly", { autoAlpha: 0, duration: 0.3 }, 0.9)
+                    .from("main", { y: 200, opacity: 0, duration: 0.4, ease: "power2.out" }, 0.8)
                     .to("#main-header", { opacity: 1, y: 0, duration: 0.4, onStart: () => { window.revealHeroContent(); } }, 0.8);
             };
-            
-            if (video.readyState >= 1) initScrolly(); 
-            else video.onloadedmetadata = initScrolly;
-        }
 
-        // 2. Micro-transitions (Se activa al terminar el scrolly)
-        window.revealHeroContent = () => {
-            if (document.querySelector(".hero-anim-item")) {
-                gsap.to(".hero-anim-item", { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: "power3.out" });
+            // Fallback: Si el usuario ya está debajo del scrolly o no hay scrolly
+            if (window.scrollY > window.innerHeight) {
+                window.revealHeroContent();
             }
-        };
+
+            // Asegurar que la primera imagen esté cargada para iniciar
+            images[0].onload = () => {
+                render();
+                initScrolly();
+            };
+        } else {
+            // No hay canvas de scrolly, revelar inmediatamente
+            window.revealHeroContent();
+        }
 
         // 4. Parallax del Video Hero
         if (document.querySelector(".hero-video-bg") && document.querySelector(".hero-video-container")) {

@@ -430,6 +430,18 @@
                 height: 520px;
             }
         }
+        .icon-tint {
+            background-color: currentColor;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-position: center;
+            mask-position: center;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
     </style>
 
     <!-- Swiper.js -->

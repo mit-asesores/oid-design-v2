@@ -35,7 +35,9 @@
                 <div class="text-4xl md:text-5xl font-bold text-primary mb-2 flex justify-center items-baseline">
                     <span class="material-symbols-outlined text-4xl md:text-5xl text-red-600">emergency</span>
                 </div>
-                <p class="text-slate-500 text-sm font-light uppercase tracking-widest leading-tight">Alianza Estratégica <br/> Cruz Roja</p>
+                <p class="text-slate-500 text-sm font-light uppercase tracking-widest leading-tight">Alianza Estratégica
+                    <br /> Cruz Roja Mexicana
+                </p>
                 <div class="w-8 h-0.5 bg-red-100 mx-auto mt-4 group-hover:w-16 transition-all duration-500"></div>
             </div>
         </div>
@@ -45,7 +47,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const counters = document.querySelectorAll('.counter');
-        
+
         const startCounter = (el) => {
             const target = +el.getAttribute('data-target');
             const count = +el.innerText;
